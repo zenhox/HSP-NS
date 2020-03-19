@@ -1,0 +1,2 @@
+/usr/bin/ar qc libnscore.a  CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/NS3EventManager.cpp.o CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/NS3Simulator.cpp.o CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/NSEvent.cpp.o CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/NSTime.cpp.o
+/usr/bin/ranlib libnscore.a

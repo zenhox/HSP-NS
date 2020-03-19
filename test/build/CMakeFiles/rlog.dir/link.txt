@@ -1,0 +1,2 @@
+/usr/bin/ar qc librlog.a  CMakeFiles/rlog.dir/home/hox/workspace/bysj/HSP-NS/lib/rlog/src/rlog.cc.o
+/usr/bin/ranlib librlog.a

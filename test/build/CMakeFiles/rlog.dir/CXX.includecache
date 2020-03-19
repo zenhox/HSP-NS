@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../../lib/rlog/include/rlog.h
+stdio.h
+-
+string.h
+-
+stdint.h
+-
+stdlib.h
+-
+pthread.h
+-
+time.h
+-
+sys/time.h
+-
+sys/types.h
+-
+
+/home/hox/workspace/bysj/HSP-NS/lib/rlog/src/rlog.cc
+rlog.h
+/home/hox/workspace/bysj/HSP-NS/lib/rlog/src/rlog.h
+errno.h
+-
+unistd.h
+-
+assert.h
+-
+stdarg.h
+-
+sys/stat.h
+-
+sys/syscall.h
+-
+
