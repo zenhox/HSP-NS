@@ -1,4 +1,4 @@
-# Install script for directory: /home/hox/workspace/bysj/HSP-NS/test
+# Install script for directory: /home/hox/workspace/bysj/HSP-NS/test_core
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/hox/workspace/bysj/HSP-NS/test/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/hox/workspace/bysj/HSP-NS/test_core/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

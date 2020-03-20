@@ -16,6 +16,7 @@ CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Simulator.cpp.o
  ../../core/include/Common.h
  ../../core/include/Event.h
  ../../core/include/EventManager.h
+ ../../core/include/Logger.h
  ../../core/include/Simulator.h
  ../../core/include/Time.h
  /home/hox/workspace/bysj/HSP-NS/core/src/Simulator.cpp

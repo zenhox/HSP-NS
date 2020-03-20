@@ -3,13 +3,14 @@
 namespace HSP_NS{
 
 Time Simulator::_curTime(Second,0); 
+
 EventManager& Simulator::_eventManager = EventManager::getEventManager();
 void Simulator::run(){
     Event nextEv = std::make_pair(EventKey(), nullptr);
     while(!_eventManager.peekNext(nextEv)){
         _curTime = (nextEv.first).getTimestamp();
-        LOGF(DEBUG, "[%llu] Exec event, node=%u, event_id=%llu, description: %s", 
-                    (nextEv.first).getTimestamp().getValue(), 
+        WRITE_LOG(DEBUG, "[%ss] Exec event, node=%u, event_id=%llu, description: %s", 
+                    _curTime.toString(Second).c_str(), 
                     (nextEv.first).getNodeId(),
                     (nextEv.first).getEventId(),
                     (nextEv.first).getDescription().c_str());
@@ -19,7 +20,12 @@ void Simulator::run(){
 
 void Simulator::destroy(){
     _eventManager.destroy();
-    LOGF(DEBUG, "Destroy the simulator");
+    WRITE_LOG(DEBUG, "[%ss] Destroy the simulator", _curTime.toString(Second).c_str());
 }
+
+String Simulator::getTimestamp(TIME_TYPE type){
+    return _curTime.toString(type);
+}
+
 
 }

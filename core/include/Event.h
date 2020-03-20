@@ -4,7 +4,6 @@
 #include <memory>
 #include "Common.h"
 #include "Time.h"
-#include <string>
 using std::shared_ptr;
 using std::make_shared;
 using std::pair;
@@ -17,14 +16,14 @@ namespace HSP_NS {
 		NODE_ID _nodeId;
 		Time _timestamp;
 		EVENT_STATUS _status;
-		std::string _desc; // 事件描述
+		String _desc; // 事件描述
 		EventKey();
-		EventKey(EVENT_ID event_id, NODE_ID node_id, Time timestamp, EVENT_STATUS status, const std::string &desc);
+		EventKey(EVENT_ID event_id, NODE_ID node_id, Time timestamp, EVENT_STATUS status, const String &desc);
 		EVENT_ID getEventId()const;
 		NODE_ID getNodeId()const;
 		Time getTimestamp()const;
 		EVENT_STATUS getStatus()const;
-		std::string getDescription()const;
+		String getDescription()const;
 		bool operator<(const EventKey& key2)const;
 	};
 
@@ -49,23 +48,23 @@ namespace HSP_NS {
 		* \returns The constructed EventImpl.
 		*/ 
 		template <typename MEM, typename OBJ> 
-		static Event make_event(NODE_ID nodeId, Time timeToRun, const std::string& desc,
+		static Event make_event(NODE_ID nodeId, Time timeToRun, const String& desc,
 								MEM mem_ptr, OBJ obj);
 		template <typename MEM, typename OBJ,
 			      typename T1>
-		static Event make_event(NODE_ID nodeId, Time timeToRun, const std::string& desc, 
+		static Event make_event(NODE_ID nodeId, Time timeToRun, const String& desc, 
 								MEM mem_ptr, OBJ obj, T1 a1);
 		template <typename MEM, typename OBJ,
 				  typename T1, typename T2>
-		static Event make_event(NODE_ID nodeId, Time timeToRun, const std::string& desc, 
+		static Event make_event(NODE_ID nodeId, Time timeToRun, const String& desc, 
 								MEM mem_ptr, OBJ obj, T1 a1, T2 a2);				  
 		template <typename MEM, typename OBJ,
 				  typename T1, typename T2, typename T3>
-		static Event make_event(NODE_ID nodeId, Time timeToRun, const std::string& desc, 
+		static Event make_event(NODE_ID nodeId, Time timeToRun, const String& desc, 
 								MEM mem_ptr, OBJ obj, T1 a1, T2 a2, T3 a3);
 		template <typename MEM, typename OBJ,
 				  typename T1, typename T2, typename T3, typename T4>
-		static Event make_event(NODE_ID nodeId, Time timeToRun, const std::string& desc, 
+		static Event make_event(NODE_ID nodeId, Time timeToRun, const String& desc, 
 								MEM mem_ptr, OBJ obj, T1 a1, T2 a2, T3 a3, T4 a4);
 
 		/**
@@ -89,7 +88,7 @@ namespace HSP_NS {
 	};
 
 	template <typename MEM, typename OBJ>
-	inline Event EventMaker::make_event(NODE_ID nodeId, Time timeToRun, const std::string& desc, MEM mem_ptr, OBJ obj){
+	inline Event EventMaker::make_event(NODE_ID nodeId, Time timeToRun, const String& desc, MEM mem_ptr, OBJ obj){
 		class EventMemberImpl0 : public EventHandler
 		{
 		public:
@@ -112,7 +111,7 @@ namespace HSP_NS {
 	}
 	template <typename MEM, typename OBJ,
 			  typename T1>
-	inline Event EventMaker::make_event(NODE_ID nodeId, Time timeToRun, const std::string& desc, 
+	inline Event EventMaker::make_event(NODE_ID nodeId, Time timeToRun, const String& desc, 
 										MEM mem_ptr, OBJ obj, T1 a1){
 		class EventMemberImpl1 : public EventHandler
 		{
@@ -138,7 +137,7 @@ namespace HSP_NS {
 	}
 	template <typename MEM, typename OBJ,
 				typename T1,  typename T2>
-	inline Event EventMaker::make_event(NODE_ID nodeId, Time timeToRun, const std::string& desc, 
+	inline Event EventMaker::make_event(NODE_ID nodeId, Time timeToRun, const String& desc, 
 										MEM mem_ptr, OBJ obj, T1 a1, T2 a2){
 		class EventMemberImpl2 : public EventHandler
 		{
@@ -167,7 +166,7 @@ namespace HSP_NS {
 
 	template <typename MEM, typename OBJ,
 			  typename T1,  typename T2, typename T3>
-	inline Event EventMaker::make_event(NODE_ID nodeId, Time timeToRun, const std::string& desc, 
+	inline Event EventMaker::make_event(NODE_ID nodeId, Time timeToRun, const String& desc, 
 										MEM mem_ptr, OBJ obj, T1 a1, T2 a2, T3 a3){
 		class EventMemberImpl3 : public EventHandler
 		{
@@ -198,7 +197,7 @@ namespace HSP_NS {
 
 	template <typename MEM, typename OBJ,
 			  typename T1,  typename T2, typename T3, typename T4>
-	inline Event EventMaker::make_event(NODE_ID nodeId, Time timeToRun, const std::string& desc, 
+	inline Event EventMaker::make_event(NODE_ID nodeId, Time timeToRun, const String& desc, 
 										MEM mem_ptr, OBJ obj, T1 a1, T2 a2, T3 a3, T4 a4){
 		class EventMemberImpl4 : public EventHandler
 		{

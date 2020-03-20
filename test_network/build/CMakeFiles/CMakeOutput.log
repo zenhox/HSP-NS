@@ -633,3 +633,31 @@ make[1]: 离开目录“/home/hox/workspace/bysj/HSP-NS/test_network/build/CMake
     Feature record: CXX_FEATURE:0cxx_variable_templates
     Feature record: CXX_FEATURE:0cxx_variadic_macros
     Feature record: CXX_FEATURE:0cxx_variadic_templates
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/hox/workspace/bysj/HSP-NS/test_network/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3c96d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3c96d.dir/build.make CMakeFiles/cmTC_3c96d.dir/build
+make[1]: 进入目录“/home/hox/workspace/bysj/HSP-NS/test_network/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_3c96d.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_3c96d.dir/CheckIncludeFile.c.o   -c /home/hox/workspace/bysj/HSP-NS/test_network/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_3c96d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3c96d.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_3c96d.dir/CheckIncludeFile.c.o  -o cmTC_3c96d 
+make[1]: 离开目录“/home/hox/workspace/bysj/HSP-NS/test_network/build/CMakeFiles/CMakeTmp”
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/hox/workspace/bysj/HSP-NS/test_network/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_674c4/fast"
+/usr/bin/make -f CMakeFiles/cmTC_674c4.dir/build.make CMakeFiles/cmTC_674c4.dir/build
+make[1]: 进入目录“/home/hox/workspace/bysj/HSP-NS/test_network/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_674c4.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_674c4.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_674c4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_674c4.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_674c4.dir/CheckFunctionExists.c.o  -o cmTC_674c4 -lpthread 
+make[1]: 离开目录“/home/hox/workspace/bysj/HSP-NS/test_network/build/CMakeFiles/CMakeTmp”
+
+

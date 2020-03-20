@@ -7,6 +7,8 @@
 #IncludeRegexTransform: 
 
 ../../core/include/Common.h
+string
+-
 
 ../../core/include/Event.h
 memory
@@ -15,8 +17,6 @@ Common.h
 ../../core/include/Common.h
 Time.h
 ../../core/include/Time.h
-string
--
 
 ../../core/include/EventManager.h
 Common.h
@@ -28,9 +28,15 @@ map
 memory
 -
 
-../../core/include/Simulator.h
+../../core/include/Logger.h
 g3log/g3log.hpp
 -
+g3log/logworker.hpp
+-
+Common.h
+../../core/include/Common.h
+
+../../core/include/Simulator.h
 Common.h
 ../../core/include/Common.h
 Time.h
@@ -39,6 +45,8 @@ EventManager.h
 ../../core/include/EventManager.h
 Event.h
 ../../core/include/Event.h
+Logger.h
+../../core/include/Logger.h
 
 ../../core/include/Time.h
 Common.h
@@ -59,4 +67,8 @@ Simulator.h
 /home/hox/workspace/bysj/HSP-NS/core/src/Time.cpp
 Time.h
 /home/hox/workspace/bysj/HSP-NS/core/src/Time.h
+sstream
+-
+iomanip
+-
 

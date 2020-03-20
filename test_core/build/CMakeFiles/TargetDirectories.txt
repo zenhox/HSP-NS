@@ -1,4 +1,4 @@
-/home/hox/workspace/bysj/HSP-NS/test/build/CMakeFiles/edit_cache.dir
-/home/hox/workspace/bysj/HSP-NS/test/build/CMakeFiles/nscore.dir
-/home/hox/workspace/bysj/HSP-NS/test/build/CMakeFiles/rebuild_cache.dir
-/home/hox/workspace/bysj/HSP-NS/test/build/CMakeFiles/nstest.dir
+/home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles/edit_cache.dir
+/home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles/nscore.dir
+/home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles/rebuild_cache.dir
+/home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles/nstest.dir

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/hox/workspace/bysj/HSP-NS/test/main.cpp" "/home/hox/workspace/bysj/HSP-NS/test/build/CMakeFiles/nstest.dir/main.cpp.o"
+  "/home/hox/workspace/bysj/HSP-NS/test_core/main.cpp" "/home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles/nstest.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -13,11 +13,12 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../../core/include"
   "../../lib/rlog/include"
   "../"
+  "/usr/local/include"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/hox/workspace/bysj/HSP-NS/test/build/CMakeFiles/nscore.dir/DependInfo.cmake"
+  "/home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles/nscore.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

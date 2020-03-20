@@ -1,8 +1,7 @@
 #include <iostream>
 #include "Simulator.h"
 #include <memory>
-#include <g3log/g3log.hpp>
-#include <g3log/logworker.hpp>
+#include "Logger.h"
 using namespace::HSP_NS;
 
 class A{
@@ -20,9 +19,7 @@ public:
 };
 
 int main(int argc, char **argv){
-    auto worker = g3::LogWorker::createLogWorker();
-    auto handle= worker->addDefaultLogger("nstest", "./log");
-    g3::initializeLogging(worker.get());
+    Logger::initLogger("nstest", "./log");
     A a;
     a.foo();
     Simulator::run();

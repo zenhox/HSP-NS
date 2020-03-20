@@ -4,7 +4,26 @@
 CMakeFiles/nstest.dir/main.cpp.o: ../../core/include/Common.h
 CMakeFiles/nstest.dir/main.cpp.o: ../../core/include/Event.h
 CMakeFiles/nstest.dir/main.cpp.o: ../../core/include/EventManager.h
+CMakeFiles/nstest.dir/main.cpp.o: ../../core/include/Logger.h
 CMakeFiles/nstest.dir/main.cpp.o: ../../core/include/Simulator.h
 CMakeFiles/nstest.dir/main.cpp.o: ../../core/include/Time.h
 CMakeFiles/nstest.dir/main.cpp.o: ../main.cpp
+CMakeFiles/nstest.dir/main.cpp.o: /usr/local/include/g3log/active.hpp
+CMakeFiles/nstest.dir/main.cpp.o: /usr/local/include/g3log/atomicbool.hpp
+CMakeFiles/nstest.dir/main.cpp.o: /usr/local/include/g3log/crashhandler.hpp
+CMakeFiles/nstest.dir/main.cpp.o: /usr/local/include/g3log/filesink.hpp
+CMakeFiles/nstest.dir/main.cpp.o: /usr/local/include/g3log/future.hpp
+CMakeFiles/nstest.dir/main.cpp.o: /usr/local/include/g3log/g3log.hpp
+CMakeFiles/nstest.dir/main.cpp.o: /usr/local/include/g3log/generated_definitions.hpp
+CMakeFiles/nstest.dir/main.cpp.o: /usr/local/include/g3log/logcapture.hpp
+CMakeFiles/nstest.dir/main.cpp.o: /usr/local/include/g3log/loglevels.hpp
+CMakeFiles/nstest.dir/main.cpp.o: /usr/local/include/g3log/logmessage.hpp
+CMakeFiles/nstest.dir/main.cpp.o: /usr/local/include/g3log/logworker.hpp
+CMakeFiles/nstest.dir/main.cpp.o: /usr/local/include/g3log/moveoncopy.hpp
+CMakeFiles/nstest.dir/main.cpp.o: /usr/local/include/g3log/shared_queue.hpp
+CMakeFiles/nstest.dir/main.cpp.o: /usr/local/include/g3log/sink.hpp
+CMakeFiles/nstest.dir/main.cpp.o: /usr/local/include/g3log/sinkhandle.hpp
+CMakeFiles/nstest.dir/main.cpp.o: /usr/local/include/g3log/sinkwrapper.hpp
+CMakeFiles/nstest.dir/main.cpp.o: /usr/local/include/g3log/stlpatch_future.hpp
+CMakeFiles/nstest.dir/main.cpp.o: /usr/local/include/g3log/time.hpp
 

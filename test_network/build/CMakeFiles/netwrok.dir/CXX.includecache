@@ -7,6 +7,8 @@
 #IncludeRegexTransform: 
 
 ../../core/include/Common.h
+string
+-
 
 ../../core/include/Event.h
 memory
@@ -15,8 +17,6 @@ Common.h
 ../../core/include/Common.h
 Time.h
 ../../core/include/Time.h
-string
--
 
 ../../core/include/EventManager.h
 Common.h
@@ -28,9 +28,15 @@ map
 memory
 -
 
-../../core/include/Simulator.h
+../../core/include/Logger.h
 g3log/g3log.hpp
 -
+g3log/logworker.hpp
+-
+Common.h
+../../core/include/Common.h
+
+../../core/include/Simulator.h
 Common.h
 ../../core/include/Common.h
 Time.h
@@ -39,14 +45,14 @@ EventManager.h
 ../../core/include/EventManager.h
 Event.h
 ../../core/include/Event.h
+Logger.h
+../../core/include/Logger.h
 
 ../../core/include/Time.h
 Common.h
 ../../core/include/Common.h
 
 ../../network/include/IpAddress.h
-string
--
 Common.h
 ../../network/include/Common.h
 
@@ -74,8 +80,6 @@ Common.h
 IpAddress.h
 ../../network/include/IpAddress.h
 memory
--
-string
 -
 map
 -
@@ -107,8 +111,10 @@ iostream
 /home/hox/workspace/bysj/HSP-NS/network/src/Node.cpp
 Node.h
 /home/hox/workspace/bysj/HSP-NS/network/src/Node.h
-g3log/g3log.hpp
--
+Logger.h
+/home/hox/workspace/bysj/HSP-NS/network/src/Logger.h
+Simulator.h
+/home/hox/workspace/bysj/HSP-NS/network/src/Simulator.h
 
 /home/hox/workspace/bysj/HSP-NS/network/src/Packet.cpp
 Packet.h

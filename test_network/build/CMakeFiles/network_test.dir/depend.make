@@ -4,6 +4,7 @@
 CMakeFiles/network_test.dir/main.cpp.o: ../../core/include/Common.h
 CMakeFiles/network_test.dir/main.cpp.o: ../../core/include/Event.h
 CMakeFiles/network_test.dir/main.cpp.o: ../../core/include/EventManager.h
+CMakeFiles/network_test.dir/main.cpp.o: ../../core/include/Logger.h
 CMakeFiles/network_test.dir/main.cpp.o: ../../core/include/Simulator.h
 CMakeFiles/network_test.dir/main.cpp.o: ../../core/include/Time.h
 CMakeFiles/network_test.dir/main.cpp.o: ../../network/include/IpAddress.h
@@ -12,4 +13,22 @@ CMakeFiles/network_test.dir/main.cpp.o: ../../network/include/Network.h
 CMakeFiles/network_test.dir/main.cpp.o: ../../network/include/Node.h
 CMakeFiles/network_test.dir/main.cpp.o: ../../network/include/Packet.h
 CMakeFiles/network_test.dir/main.cpp.o: ../main.cpp
+CMakeFiles/network_test.dir/main.cpp.o: /usr/local/include/g3log/active.hpp
+CMakeFiles/network_test.dir/main.cpp.o: /usr/local/include/g3log/atomicbool.hpp
+CMakeFiles/network_test.dir/main.cpp.o: /usr/local/include/g3log/crashhandler.hpp
+CMakeFiles/network_test.dir/main.cpp.o: /usr/local/include/g3log/filesink.hpp
+CMakeFiles/network_test.dir/main.cpp.o: /usr/local/include/g3log/future.hpp
+CMakeFiles/network_test.dir/main.cpp.o: /usr/local/include/g3log/g3log.hpp
+CMakeFiles/network_test.dir/main.cpp.o: /usr/local/include/g3log/generated_definitions.hpp
+CMakeFiles/network_test.dir/main.cpp.o: /usr/local/include/g3log/logcapture.hpp
+CMakeFiles/network_test.dir/main.cpp.o: /usr/local/include/g3log/loglevels.hpp
+CMakeFiles/network_test.dir/main.cpp.o: /usr/local/include/g3log/logmessage.hpp
+CMakeFiles/network_test.dir/main.cpp.o: /usr/local/include/g3log/logworker.hpp
+CMakeFiles/network_test.dir/main.cpp.o: /usr/local/include/g3log/moveoncopy.hpp
+CMakeFiles/network_test.dir/main.cpp.o: /usr/local/include/g3log/shared_queue.hpp
+CMakeFiles/network_test.dir/main.cpp.o: /usr/local/include/g3log/sink.hpp
+CMakeFiles/network_test.dir/main.cpp.o: /usr/local/include/g3log/sinkhandle.hpp
+CMakeFiles/network_test.dir/main.cpp.o: /usr/local/include/g3log/sinkwrapper.hpp
+CMakeFiles/network_test.dir/main.cpp.o: /usr/local/include/g3log/stlpatch_future.hpp
+CMakeFiles/network_test.dir/main.cpp.o: /usr/local/include/g3log/time.hpp
 

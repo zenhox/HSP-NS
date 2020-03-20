@@ -1,9 +1,10 @@
 #include "Node.h"
-#include <g3log/g3log.hpp>
+#include "Logger.h"
+#include "Simulator.h"
 
 namespace HSP_NS{
 
-    RouteMatch::RouteMatch(const std::string& netAddr, const std::string& netMask)
+    RouteMatch::RouteMatch(const String& netAddr, const String& netMask)
         : _subnetAddr(netAddr),
         _subnetMask(netMask)
     {
@@ -53,7 +54,8 @@ namespace HSP_NS{
 
     int Node::receive(shared_ptr<Packet> pktRecv){
         // empty body.
-        LOGF(INFO, "NodeId=%u(%s), Receive a packet from %s.",
+        WRITE_LOG(INFO, "[%ss] NodeId=%u(%s), Receive a packet from %s.",
+                    Simulator::getTimestamp(Second).c_str(),
                     _nodeId,
                     pktRecv->getDstIpAddrStr().c_str(),
                     pktRecv->getSrcIpAddrStr().c_str());

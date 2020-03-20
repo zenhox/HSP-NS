@@ -5,6 +5,7 @@ CMakeFiles/network_test.dir/main.cpp.o
  ../../core/include/Common.h
  ../../core/include/Event.h
  ../../core/include/EventManager.h
+ ../../core/include/Logger.h
  ../../core/include/Simulator.h
  ../../core/include/Time.h
  ../../network/include/IpAddress.h
@@ -13,3 +14,21 @@ CMakeFiles/network_test.dir/main.cpp.o
  ../../network/include/Node.h
  ../../network/include/Packet.h
  /home/hox/workspace/bysj/HSP-NS/test_network/main.cpp
+ /usr/local/include/g3log/active.hpp
+ /usr/local/include/g3log/atomicbool.hpp
+ /usr/local/include/g3log/crashhandler.hpp
+ /usr/local/include/g3log/filesink.hpp
+ /usr/local/include/g3log/future.hpp
+ /usr/local/include/g3log/g3log.hpp
+ /usr/local/include/g3log/generated_definitions.hpp
+ /usr/local/include/g3log/logcapture.hpp
+ /usr/local/include/g3log/loglevels.hpp
+ /usr/local/include/g3log/logmessage.hpp
+ /usr/local/include/g3log/logworker.hpp
+ /usr/local/include/g3log/moveoncopy.hpp
+ /usr/local/include/g3log/shared_queue.hpp
+ /usr/local/include/g3log/sink.hpp
+ /usr/local/include/g3log/sinkhandle.hpp
+ /usr/local/include/g3log/sinkwrapper.hpp
+ /usr/local/include/g3log/stlpatch_future.hpp
+ /usr/local/include/g3log/time.hpp

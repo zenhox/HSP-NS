@@ -1,6 +1,7 @@
 cmake_minimum_required( VERSION 2.8 )
-set( CMAKE_CXX_FLAGS "-std=c++11" )
+set( CMAKE_CXX_FLAGS "-std=c++14" )
 
+#add_compile_options(-D _NO_LOG_)
 
 SET(CMAKE_BUILD_TYPE "Debug")
 SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g2 -ggdb")
@@ -34,8 +35,8 @@ add_library(${LIB_NETWORK_NAME} STATIC ${NETWORK_SRC})
 add_executable(${PROJECT_NAME} ${TEST_SRC})
 
 # 找到g3logger
-#link_libraries(${PROJECT_SOURCE_DIR}/../lib/g3log-1.3.1/build/libg3logger.so)
+find_package(g3logger CONFIG REQUIRED)
 
 # 把库链接起来
-target_link_libraries(${PROJECT_NAME} ${LIB_CORE_NAME} ${LIB_NETWORK_NAME} pthread -lg3logger) 
+target_link_libraries(${PROJECT_NAME} ${LIB_CORE_NAME} ${LIB_NETWORK_NAME} pthread g3logger) 
 

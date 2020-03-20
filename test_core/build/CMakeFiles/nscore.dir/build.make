@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/hox/workspace/bysj/HSP-NS/test
+CMAKE_SOURCE_DIR = /home/hox/workspace/bysj/HSP-NS/test_core
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/hox/workspace/bysj/HSP-NS/test/build
+CMAKE_BINARY_DIR = /home/hox/workspace/bysj/HSP-NS/test_core/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/nscore.dir/depend.make
@@ -59,7 +59,7 @@ include CMakeFiles/nscore.dir/flags.make
 
 CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Event.cpp.o: CMakeFiles/nscore.dir/flags.make
 CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Event.cpp.o: /home/hox/workspace/bysj/HSP-NS/core/src/Event.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hox/workspace/bysj/HSP-NS/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Event.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Event.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Event.cpp.o -c /home/hox/workspace/bysj/HSP-NS/core/src/Event.cpp
 
 CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Event.cpp.i: cmake_force
@@ -83,7 +83,7 @@ CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Event.cpp.o.provid
 
 CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/EventManager.cpp.o: CMakeFiles/nscore.dir/flags.make
 CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/EventManager.cpp.o: /home/hox/workspace/bysj/HSP-NS/core/src/EventManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hox/workspace/bysj/HSP-NS/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/EventManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/EventManager.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/EventManager.cpp.o -c /home/hox/workspace/bysj/HSP-NS/core/src/EventManager.cpp
 
 CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/EventManager.cpp.i: cmake_force
@@ -107,7 +107,7 @@ CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/EventManager.cpp.o
 
 CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Simulator.cpp.o: CMakeFiles/nscore.dir/flags.make
 CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Simulator.cpp.o: /home/hox/workspace/bysj/HSP-NS/core/src/Simulator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hox/workspace/bysj/HSP-NS/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Simulator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Simulator.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Simulator.cpp.o -c /home/hox/workspace/bysj/HSP-NS/core/src/Simulator.cpp
 
 CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Simulator.cpp.i: cmake_force
@@ -131,7 +131,7 @@ CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Simulator.cpp.o.pr
 
 CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Time.cpp.o: CMakeFiles/nscore.dir/flags.make
 CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Time.cpp.o: /home/hox/workspace/bysj/HSP-NS/core/src/Time.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hox/workspace/bysj/HSP-NS/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Time.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Time.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Time.cpp.o -c /home/hox/workspace/bysj/HSP-NS/core/src/Time.cpp
 
 CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Time.cpp.i: cmake_force
@@ -169,7 +169,7 @@ libnscore.a: CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Simul
 libnscore.a: CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Time.cpp.o
 libnscore.a: CMakeFiles/nscore.dir/build.make
 libnscore.a: CMakeFiles/nscore.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/hox/workspace/bysj/HSP-NS/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libnscore.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libnscore.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/nscore.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/nscore.dir/link.txt --verbose=$(VERBOSE)
 
@@ -190,6 +190,6 @@ CMakeFiles/nscore.dir/clean:
 .PHONY : CMakeFiles/nscore.dir/clean
 
 CMakeFiles/nscore.dir/depend:
-	cd /home/hox/workspace/bysj/HSP-NS/test/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hox/workspace/bysj/HSP-NS/test /home/hox/workspace/bysj/HSP-NS/test /home/hox/workspace/bysj/HSP-NS/test/build /home/hox/workspace/bysj/HSP-NS/test/build /home/hox/workspace/bysj/HSP-NS/test/build/CMakeFiles/nscore.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/hox/workspace/bysj/HSP-NS/test_core/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hox/workspace/bysj/HSP-NS/test_core /home/hox/workspace/bysj/HSP-NS/test_core /home/hox/workspace/bysj/HSP-NS/test_core/build /home/hox/workspace/bysj/HSP-NS/test_core/build /home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles/nscore.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/nscore.dir/depend
 

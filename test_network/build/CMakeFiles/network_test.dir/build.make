@@ -92,6 +92,7 @@ network_test: CMakeFiles/network_test.dir/main.cpp.o
 network_test: CMakeFiles/network_test.dir/build.make
 network_test: libnscore.a
 network_test: libnetwrok.a
+network_test: /usr/local/lib/libg3logger.so.1.3.2-86
 network_test: CMakeFiles/network_test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/hox/workspace/bysj/HSP-NS/test_network/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable network_test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/network_test.dir/link.txt --verbose=$(VERBOSE)

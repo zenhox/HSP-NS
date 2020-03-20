@@ -2,7 +2,7 @@
 
 namespace HSP_NS {
 
-	EventKey::EventKey(EVENT_ID event_id, NODE_ID node_id, Time timestamp, EVENT_STATUS status, const std::string& desc)
+	EventKey::EventKey(EVENT_ID event_id, NODE_ID node_id, Time timestamp, EVENT_STATUS status, const String& desc)
 		: _eventId(event_id),
 		_nodeId(node_id), 
 		_timestamp(timestamp), 
@@ -38,7 +38,7 @@ namespace HSP_NS {
 		return _status;
 	}
 
-	std::string EventKey::getDescription()const{
+	String EventKey::getDescription()const{
 		return _desc;
 	}
 

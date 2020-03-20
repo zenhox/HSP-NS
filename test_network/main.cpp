@@ -2,29 +2,24 @@
 #include "Simulator.h"
 #include "Network.h"
 #include <memory>
-#include <g3log/g3log.hpp>
-#include <g3log/logworker.hpp>
+#include "Logger.h"
 using namespace HSP_NS;
 using namespace std;
 using std::shared_ptr;
 
 int main(int argc, char **argv){
     // 日志初始化
-    auto worker = g3::LogWorker::createLogWorker();
-    auto handle= worker->addDefaultLogger("network_test", "./log");
-    g3::initializeLogging(worker.get());
+    Logger::initLogger("network_test", "./log");
 
+    // Logger::shutdown();
     //生成2个node和link(delay,dataRate)
     shared_ptr<Node> n1 = make_shared<Node>(1);
     shared_ptr<Node> n2 = make_shared<Node>(2);
     shared_ptr<Link> link = make_shared<Link>(Time(MilliSecond, 1), 1000*1024*1024);  
 
     //将n1,n2通过link连接
-    if(n1->addLink(0, Ipv4Address("10.0.0.1"), link) < 0)
-        cout << "add link fail" <<endl;
-    
-    if(n2->addLink(0, Ipv4Address("10.0.0.2"), link) < 0)
-        cout << "add link fail" <<endl;
+    n1->addLink(0, Ipv4Address("10.0.0.1"), link);
+    n2->addLink(0, Ipv4Address("10.0.0.2"), link);
 
     //给节点设置路由
     n1->addRouteItem(Ipv4Address("10.0.0.0"), Ipv4Address("255.255.255.0"), 0);

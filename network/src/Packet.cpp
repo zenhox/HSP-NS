@@ -1,7 +1,7 @@
 #include "Packet.h"
 
 namespace HSP_NS{
-    Packet::Packet(const std::string& srcAddr, const std::string& dstAddr, UINT32_T pktSize)
+    Packet::Packet(const String& srcAddr, const String& dstAddr, UINT32_T pktSize)
         : _ipv4Src(srcAddr), _ipv4Dst(dstAddr), _pktSize(pktSize)
     {
 
@@ -19,10 +19,10 @@ namespace HSP_NS{
         return _ipv4Src;
     }
 
-    std::string Packet::getDstIpAddrStr()const{
+    String Packet::getDstIpAddrStr()const{
         return _ipv4Dst.getAddrStr();
     }
-    std::string Packet::getSrcIpAddrStr()const{
+    String Packet::getSrcIpAddrStr()const{
         return _ipv4Src.getAddrStr();
     }
     UINT32_T Packet::getPktSize()const{

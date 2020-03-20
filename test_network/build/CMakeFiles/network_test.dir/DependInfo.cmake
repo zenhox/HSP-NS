@@ -13,6 +13,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../../core/include"
   "../../network/include"
   "../"
+  "/usr/local/include"
   )
 
 # Targets to which this target links.

@@ -4,7 +4,7 @@
 
 namespace HSP_NS{
 
-Ipv4Address::Ipv4Address(const std::string& addrStr){
+Ipv4Address::Ipv4Address(const String& addrStr){
     _addr = inet_addr(addrStr.c_str());
 }
 Ipv4Address::Ipv4Address(UINT32_T addrInt)
@@ -19,12 +19,12 @@ Ipv4Address::Ipv4Address(const Ipv4Address& addr){
 bool Ipv4Address::isValid()const{
     return _addr != INADDR_NONE;
 }
-std::string Ipv4Address::getAddrStr()const{
+String Ipv4Address::getAddrStr()const{
     if (_addr == INADDR_NONE)
-        return std::string("<invalid addr>");
+        return String("<invalid addr>");
     struct in_addr addr;
     memcpy(&addr, &_addr, 4);    
-    return std::string(inet_ntoa(addr));
+    return String(inet_ntoa(addr));
 }
 
 UINT32_T Ipv4Address::getAddrVal()const{

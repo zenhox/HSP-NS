@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/hox/workspace/bysj/HSP-NS/core/src/Event.cpp" "/home/hox/workspace/bysj/HSP-NS/test/build/CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Event.cpp.o"
-  "/home/hox/workspace/bysj/HSP-NS/core/src/EventManager.cpp" "/home/hox/workspace/bysj/HSP-NS/test/build/CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/EventManager.cpp.o"
-  "/home/hox/workspace/bysj/HSP-NS/core/src/Simulator.cpp" "/home/hox/workspace/bysj/HSP-NS/test/build/CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Simulator.cpp.o"
-  "/home/hox/workspace/bysj/HSP-NS/core/src/Time.cpp" "/home/hox/workspace/bysj/HSP-NS/test/build/CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Time.cpp.o"
+  "/home/hox/workspace/bysj/HSP-NS/core/src/Event.cpp" "/home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Event.cpp.o"
+  "/home/hox/workspace/bysj/HSP-NS/core/src/EventManager.cpp" "/home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/EventManager.cpp.o"
+  "/home/hox/workspace/bysj/HSP-NS/core/src/Simulator.cpp" "/home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Simulator.cpp.o"
+  "/home/hox/workspace/bysj/HSP-NS/core/src/Time.cpp" "/home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Time.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

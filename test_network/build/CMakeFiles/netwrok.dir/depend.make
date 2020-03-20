@@ -8,6 +8,7 @@ CMakeFiles/netwrok.dir/home/hox/workspace/bysj/HSP-NS/network/src/IpAddress.cpp.
 CMakeFiles/netwrok.dir/home/hox/workspace/bysj/HSP-NS/network/src/Link.cpp.o: ../../core/include/Common.h
 CMakeFiles/netwrok.dir/home/hox/workspace/bysj/HSP-NS/network/src/Link.cpp.o: ../../core/include/Event.h
 CMakeFiles/netwrok.dir/home/hox/workspace/bysj/HSP-NS/network/src/Link.cpp.o: ../../core/include/EventManager.h
+CMakeFiles/netwrok.dir/home/hox/workspace/bysj/HSP-NS/network/src/Link.cpp.o: ../../core/include/Logger.h
 CMakeFiles/netwrok.dir/home/hox/workspace/bysj/HSP-NS/network/src/Link.cpp.o: ../../core/include/Simulator.h
 CMakeFiles/netwrok.dir/home/hox/workspace/bysj/HSP-NS/network/src/Link.cpp.o: ../../core/include/Time.h
 CMakeFiles/netwrok.dir/home/hox/workspace/bysj/HSP-NS/network/src/Link.cpp.o: ../../network/include/IpAddress.h
@@ -17,6 +18,10 @@ CMakeFiles/netwrok.dir/home/hox/workspace/bysj/HSP-NS/network/src/Link.cpp.o: ..
 CMakeFiles/netwrok.dir/home/hox/workspace/bysj/HSP-NS/network/src/Link.cpp.o: /home/hox/workspace/bysj/HSP-NS/network/src/Link.cpp
 
 CMakeFiles/netwrok.dir/home/hox/workspace/bysj/HSP-NS/network/src/Node.cpp.o: ../../core/include/Common.h
+CMakeFiles/netwrok.dir/home/hox/workspace/bysj/HSP-NS/network/src/Node.cpp.o: ../../core/include/Event.h
+CMakeFiles/netwrok.dir/home/hox/workspace/bysj/HSP-NS/network/src/Node.cpp.o: ../../core/include/EventManager.h
+CMakeFiles/netwrok.dir/home/hox/workspace/bysj/HSP-NS/network/src/Node.cpp.o: ../../core/include/Logger.h
+CMakeFiles/netwrok.dir/home/hox/workspace/bysj/HSP-NS/network/src/Node.cpp.o: ../../core/include/Simulator.h
 CMakeFiles/netwrok.dir/home/hox/workspace/bysj/HSP-NS/network/src/Node.cpp.o: ../../core/include/Time.h
 CMakeFiles/netwrok.dir/home/hox/workspace/bysj/HSP-NS/network/src/Node.cpp.o: ../../network/include/IpAddress.h
 CMakeFiles/netwrok.dir/home/hox/workspace/bysj/HSP-NS/network/src/Node.cpp.o: ../../network/include/Link.h
