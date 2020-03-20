@@ -15,16 +15,17 @@
 * test目录初步展示的core中模拟器的使用方法，包括事件的生成。
 * CMakeLists.txt.example 在core基础下，新建模拟场景时所需要的cmake配置模板.
 
-## test 模块
+## test_core 模块
 
 测试将类方法作为event，传入模拟器不同时间执行，同时测试了在一个event中生成新的event.
 
 ## network 模块
 
-作为一个基本模块，初步主要实现节点(Node) 和 连接(Link)模型概念, 首先实现发送数据包的完整event流程.
-后续：
+作为一个基本模块，初步主要实现节点(Node) 和 连接(Link)模型概念, 实现send和receive等基本功能.
 
-* 基于Node, 实现Router, 拥有静态路由转发功能（需要参考NS-3转发流程，来达到近似性能效果）.
+## test_network 模块
+
+测试网络模块的功能, 实现了点对点的 发包测试.
 
 ## udpflood
 

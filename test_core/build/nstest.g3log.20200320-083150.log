@@ -1,0 +1,9 @@
+		g3log created log at: Fri Mar 20 08:31:50 2020
+		LOG format: [YYYY/MM/DD hh:mm:ss uuu* LEVEL FILE->FUNCTION:LINE] message		(uuu*: microseconds fractions of the seconds value)
+
+2020/03/20 08:31:50 528880	DEBUG [Simulator.h->schedule:48]	[1000000000000000] Insert event, node=0, event_id=0, description: 测试event1
+2020/03/20 08:31:50 528904	DEBUG [Simulator.cpp->run:15]	[1000000000000000] Exec event, node=0, event_id=0, description: 测试event1
+2020/03/20 08:31:50 528913	DEBUG [Simulator.h->schedule:61]	[1000100000000000000] Insert event, node=1, event_id=1, description: 生成的event
+2020/03/20 08:31:50 528919	DEBUG [Simulator.cpp->run:15]	[1000100000000000000] Exec event, node=1, event_id=1, description: 生成的event
+2020/03/20 08:31:50 528924	DEBUG [Simulator.cpp->destroy:22]	Destroy the simulator
+g3log g3FileSink shutdown at: 08:31:50 529149

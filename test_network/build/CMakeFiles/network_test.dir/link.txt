@@ -1,0 +1,1 @@
+/usr/bin/c++  -std=c++11  -O0 -Wall -g2 -ggdb  -rdynamic CMakeFiles/network_test.dir/main.cpp.o  -o network_test libnscore.a libnetwrok.a -lpthread -lg3logger 
