@@ -7,7 +7,6 @@
 #include "Packet.h"
 #include "Common.h"
 #include <memory>
-using std::shared_ptr;
 
 
 namespace HSP_NS{
@@ -42,7 +41,7 @@ private:
     // UINT32_T _rxBufferRemain;
 };
 
-class Link{
+class Link : public std::enable_shared_from_this<Link>{
 public:
     Link( Time delay, UINT64_T dataRate );
 

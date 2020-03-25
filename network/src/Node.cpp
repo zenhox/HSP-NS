@@ -29,57 +29,81 @@ namespace HSP_NS{
     }
 
     Node::Node(NODE_ID id)
+        :_defaultLink(nullptr)
     {
         _nodeId = id;
     }
 
-    int Node::addLink(UINT32_T id, const Ipv4Address& addr, shared_ptr<Link> link){
+    int Node::addLink(const Ipv4Address& addr, shared_ptr<Link> link){
         // 不能shared_ptr<Node>(this)
         if(link->connect(shared_from_this()) != 0)
             return -1;
-        _addrLinkMap.insert(std::make_pair(addr, link));
-        _idLinkMap.insert(std::make_pair(id, link));
+        _linkAddrMap.insert(std::make_pair(link, addr));
+        _defaultLink = link;
         return 0;
     }
-    int Node::addRouteItem(const Ipv4Address& addr, const Ipv4Address& mask, UINT32_T linkId){
-        _routeTable.insert(std::make_pair(RouteMatch(addr, mask), linkId));
+    int Node::addRouteItem(const Ipv4Address& addr, const Ipv4Address& mask, shared_ptr<Link> link){
+        _routeTable.insert(std::make_pair(RouteMatch(addr, mask), link));
         return 0;
     }
      /*Event*/
-    int Node::send(shared_ptr<Packet> pktSend){
-        shared_ptr<Link> outIf = defaultRoute(pktSend->getDstIpAddr());
-        //不能shared_ptr<Node>(this)
-        return outIf->sendToDevice(shared_from_this(), pktSend);
+    int Node::sendToLink(shared_ptr<Packet> pktSend, shared_ptr<Link> toLink){
+        return toLink->sendToDevice(shared_from_this(), pktSend);
     }
 
-    int Node::receive(shared_ptr<Packet> pktRecv){
-        // empty body.
-        WRITE_LOG(INFO, "[%ss] NodeId=%u(%s), Receive a packet from %s.",
+    int Node::sendDefault(shared_ptr<Packet> pktSend){
+        return _defaultLink->sendToDevice(shared_from_this(), pktSend);
+    }
+
+    int Node::receive(shared_ptr<Link> fromLink, shared_ptr<Packet> pktRecv){
+        WRITE_LOG(INFO, "[%ss] NodeId=%u(%s), Receive a packet from %s, msg(%s).",
                     Simulator::getTimestamp(Second).c_str(),
                     _nodeId,
                     pktRecv->getDstIpAddrStr().c_str(),
-                    pktRecv->getSrcIpAddrStr().c_str());
+                    pktRecv->getSrcIpAddrStr().c_str(),
+                    pktRecv->getMessage().c_str());
         return 0;
     }
 
-    shared_ptr<Link> Node::defaultRoute(const Ipv4Address& dstAddr)const{
-        for(auto& matchAction : _routeTable){
-            const RouteMatch& match = matchAction.first;
-            if(match.isMatch(dstAddr)){
-                UINT32_T linkId = matchAction.second;
-                auto it = _idLinkMap.find(linkId);
-                if(it == _idLinkMap.end())
-                {
-                    LOGF(WARNING, "NodeId=%u(%s), Bad route item: subnet(%s) netmask(%s) linkId(%u).",
-                                _nodeId,
-                                match.getSubnetAddr().getAddrStr().c_str(),
-                                match.getSubnetMask().getAddrStr().c_str(),
-                                linkId);
-                    return nullptr;
-                }
-                return it->second;
-            }
+    shared_ptr<Link> Node::defaultRoute()const{
+        return _defaultLink;
+    }
+    void Node::setDefaultRoute(shared_ptr<Link> link){
+        _defaultLink = link;
+    }
+
+    shared_ptr<Link> Node::route(const Ipv4Address& dstAddr)const
+    {
+        if(_linkAddrMap.size() == 0)
+        {
+            return nullptr;
         }
-        return nullptr;
+        else if(_linkAddrMap.size() == 1)
+        { //如果只有一个link, 说明是普通Node, 直接发出
+            return _defaultLink;
+        }
+        else{
+            for(auto& matchAction : _routeTable){
+                    const RouteMatch& match = matchAction.first;
+                    if(match.isMatch(dstAddr)){
+                        return matchAction.second;
+                    }
+            }
+            return nullptr;
+        }
+    }
+
+    shared_ptr<Link> Node::route(const String& dstAddr)const
+    {
+        return route(Ipv4Address(dstAddr));
+    }
+
+    Ipv4Address Node::getLinkAddress(shared_ptr<Link> link)
+    {
+        return _linkAddrMap[link];
+    }
+    Ipv4Address Node::getLocalAddress()
+    {
+        return _linkAddrMap[_defaultLink];
     }
 }

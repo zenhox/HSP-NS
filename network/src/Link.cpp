@@ -48,7 +48,7 @@ namespace HSP_NS{
         Simulator::schedule(dstNode->getNodeId(),  
                             _delay,
                             "Packet Receive.", 
-                            &Node::receive, dstNode, pkt);
+                            &Node::receive, dstNode, shared_from_this(), pkt);
         shared_ptr<Node> srcNode =  getAnother(dstNode);
         Device& dev = getDevice(srcNode);
         if(dev.isTxEmpty())

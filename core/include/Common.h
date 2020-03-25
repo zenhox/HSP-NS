@@ -1,6 +1,9 @@
 #ifndef _NSCOMMON_H_
 #define _NSCOMMON_H_
 #include <string>
+#include <memory>
+using std::shared_ptr;
+using std::make_shared;
 
 // Data Type
 using INT32_T = int;
@@ -22,5 +25,6 @@ enum TIME_TYPE {Second, MilliSecond, MicroSecond, NanoSecond, BaseTime};
 #define SLICES_PER_MILLIS 1000000000
 #define SLICES_PER_MICROS 1000000
 #define SLICES_PER_NANOSE 1000
+
 
 #endif

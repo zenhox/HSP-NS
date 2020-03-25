@@ -9,6 +9,8 @@
 ../../core/include/Common.h
 string
 -
+memory
+-
 
 ../../core/include/Event.h
 memory
@@ -95,8 +97,6 @@ map
 -
 
 ../../network/include/Packet.h
-string
--
 Common.h
 ../../network/include/Common.h
 IpAddress.h
