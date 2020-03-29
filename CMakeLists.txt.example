@@ -4,6 +4,9 @@ set( CMAKE_CXX_FLAGS "-std=c++14" )
 ##是否启用日志
 #add_compile_options(-D _NO_LOG_)
 
+##是否使用ns3-core
+#add_compile_options(-D _NS3_CORE_)
+
 SET(CMAKE_BUILD_TYPE "Debug")
 SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g2 -ggdb")
 SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")

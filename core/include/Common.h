@@ -1,5 +1,7 @@
 #ifndef _NSCOMMON_H_
 #define _NSCOMMON_H_
+
+
 #include <string>
 #include <memory>
 using std::shared_ptr;

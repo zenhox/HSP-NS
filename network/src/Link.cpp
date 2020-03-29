@@ -1,6 +1,5 @@
 #include "Link.h"
-#include "Simulator.h"
-#include <iostream>
+#include "Core.h"
 
 namespace HSP_NS{
 
@@ -38,17 +37,27 @@ namespace HSP_NS{
         shared_ptr<Packet> pkt = dev.peekTxQueue();
         Time transDelay(Second, pkt->getPktSize() * 8 / _sendRate); //seconds
         shared_ptr<Node> dstNode =  getAnother(srcNode);
+        #ifndef NS3_CORE
         // insert trans complete event.
-        Simulator::schedule(srcNode->getNodeId(), transDelay + _interframeGap, "Packet TransComplete.", &Link::transmitComplete, this, dstNode, pkt);           
+            Simulator::schedule(srcNode->getNodeId(), transDelay + _interframeGap, "Packet TransComplete.", &Link::transmitComplete, this, dstNode, pkt);           
+        #else  // 使用NS3 的 scheduler
+            ns3::Time tNext (ns3::PicoSeconds ( (transDelay + _interframeGap).getValue() ));
+            ns3::Simulator::Schedule (tNext, &Link::transmitComplete, this, dstNode, pkt);
+        #endif
     }
 
     /* Event */
     void Link::transmitComplete(shared_ptr<Node> dstNode, shared_ptr<Packet> pkt){
+        #ifndef NS3_CORE
         // insert receive event.
-        Simulator::schedule(dstNode->getNodeId(),  
-                            _delay,
-                            "Packet Receive.", 
-                            &Node::receive, dstNode, shared_from_this(), pkt);
+            Simulator::schedule(dstNode->getNodeId(),  
+                                _delay,
+                                "Packet Receive.", 
+                                &Node::receive, dstNode, shared_from_this(), pkt);
+        #else
+            ns3::Time tNext = ns3::PicoSeconds (_delay.getValue());
+            ns3::Simulator::Schedule (tNext, &Node::receive, dstNode, shared_from_this(), pkt);
+        #endif
         shared_ptr<Node> srcNode =  getAnother(dstNode);
         Device& dev = getDevice(srcNode);
         if(dev.isTxEmpty())

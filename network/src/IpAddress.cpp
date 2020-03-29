@@ -1,6 +1,6 @@
 #include "IpAddress.h"
- #include <arpa/inet.h>
- #include<string.h>
+#include <arpa/inet.h>
+#include <string.h>
 
 namespace HSP_NS{
 
@@ -23,7 +23,7 @@ String Ipv4Address::getAddrStr()const{
     if (_addr == INADDR_NONE)
         return String("<invalid addr>");
     struct in_addr addr;
-    memcpy(&addr, &_addr, 4);    
+    memcpy(&addr, &_addr, 4); 
     return String(inet_ntoa(addr));
 }
 

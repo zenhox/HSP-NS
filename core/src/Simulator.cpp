@@ -26,6 +26,8 @@ void Simulator::destroy(){
 String Simulator::getTimestamp(TIME_TYPE type){
     return _curTime.toString(type);
 }
-
+UINT64_T Simulator::getEventCount(){
+    return _eventManager.getEventCount();
+}
 
 }

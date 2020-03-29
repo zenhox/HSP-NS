@@ -1,6 +1,6 @@
 #include "Node.h"
 #include "Logger.h"
-#include "Simulator.h"
+#include "Core.h"
 
 namespace HSP_NS{
 
@@ -56,12 +56,21 @@ namespace HSP_NS{
     }
 
     int Node::receive(shared_ptr<Link> fromLink, shared_ptr<Packet> pktRecv){
+        #ifndef NS3_CORE
         WRITE_LOG(INFO, "[%ss] NodeId=%u(%s), Receive a packet from %s, msg(%s).",
                     Simulator::getTimestamp(Second).c_str(),
                     _nodeId,
                     pktRecv->getDstIpAddrStr().c_str(),
                     pktRecv->getSrcIpAddrStr().c_str(),
                     pktRecv->getMessage().c_str());
+        #else
+        WRITE_LOG(INFO, "[%.12fs] NodeId=%u(%s), Receive a packet from %s, msg(%s).",
+            ns3::Simulator::Now().GetSeconds(),
+            _nodeId,
+            pktRecv->getDstIpAddrStr().c_str(),
+            pktRecv->getSrcIpAddrStr().c_str(),
+            pktRecv->getMessage().c_str());
+        #endif
         return 0;
     }
 

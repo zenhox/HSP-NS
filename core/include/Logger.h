@@ -9,7 +9,8 @@ using namespace g3;
 #define WRITE_LOG(level, printf_like_message, ...)                 \
 if (!g3::logLevel(level)) {} else INTERNAL_LOG_MESSAGE(level).capturef(printf_like_message, ##__VA_ARGS__)
 #else
-    #define WRITE_LOG(level, printf_like_message, ...)    {/*empty body*/}
+    #define WRITE_LOG(level, printf_like_message, ...)    \
+    while(0);
 #endif
 
 class Logger{

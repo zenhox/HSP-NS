@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../../ns-3-dev/build/ns3/core-config.h
+
+/home/hox/workspace/bysj/HSP-NS/ns-3-dev/src/core/model/cairo-wideint-private.h
+ns3/core-config.h
+/home/hox/workspace/bysj/HSP-NS/ns-3-dev/src/core/model/ns3/core-config.h
+stdint.h
+-
+inttypes.h
+-
+sys/int_types.h
+-
+
+/home/hox/workspace/bysj/HSP-NS/ns-3-dev/src/core/model/cairo-wideint.c
+climits
+-
+cairo-wideint-private.h
+/home/hox/workspace/bysj/HSP-NS/ns-3-dev/src/core/model/cairo-wideint-private.h
+

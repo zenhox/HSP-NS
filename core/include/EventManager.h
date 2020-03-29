@@ -15,8 +15,9 @@ namespace HSP_NS{
     class EventManager {
     private:
         map<EventKey, shared_ptr<EventHandler>> _eventMap;
+        UINT64_T _eventCount;
         //Singleton
-        EventManager()=default;
+        EventManager();
     public:
         static EventManager& getEventManager();
         // return 0: ok
@@ -24,6 +25,8 @@ namespace HSP_NS{
         int peekNext(Event& ev);
         void insertEvent(const Event& event);
         void destroy();
+
+        UINT64_T getEventCount()const;
     };
 }
 

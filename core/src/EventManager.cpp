@@ -2,7 +2,9 @@
 
 
 namespace HSP_NS{
-
+    EventManager::EventManager(){
+        _eventCount = 0;
+    }
     EventManager& EventManager::getEventManager(){
         static EventManager singleton;
         return singleton;
@@ -10,6 +12,7 @@ namespace HSP_NS{
 
     void EventManager::insertEvent(const pair<EventKey, shared_ptr<EventHandler>>& event){
         _eventMap.insert(event);
+        _eventCount += 1;
     }
 
     int EventManager::peekNext(Event& nextEv){
@@ -23,5 +26,9 @@ namespace HSP_NS{
 
     void EventManager::destroy(){
         _eventMap.clear();
+    }
+
+    UINT64_T EventManager::getEventCount()const{
+        return _eventCount;
     }
 }

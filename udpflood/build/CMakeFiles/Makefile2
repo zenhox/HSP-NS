@@ -63,8 +63,8 @@ CMAKE_BINARY_DIR = /home/hox/workspace/bysj/HSP-NS/udpflood/build
 # Target rules for target CMakeFiles/udpflood.dir
 
 # All Build rule for target.
-CMakeFiles/udpflood.dir/all: CMakeFiles/netwrok.dir/all
 CMakeFiles/udpflood.dir/all: CMakeFiles/nscore.dir/all
+CMakeFiles/udpflood.dir/all: CMakeFiles/netwrok.dir/all
 	$(MAKE) -f CMakeFiles/udpflood.dir/build.make CMakeFiles/udpflood.dir/depend
 	$(MAKE) -f CMakeFiles/udpflood.dir/build.make CMakeFiles/udpflood.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/hox/workspace/bysj/HSP-NS/udpflood/build/CMakeFiles --progress-num=11,12 "Built target udpflood"

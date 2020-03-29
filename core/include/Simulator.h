@@ -18,6 +18,7 @@ namespace HSP_NS {
 		static void run();
 		static void destroy();
 		static String getTimestamp(TIME_TYPE type);
+		static UINT64_T getEventCount();
 
 		/**
 		* desc: 事件的描述

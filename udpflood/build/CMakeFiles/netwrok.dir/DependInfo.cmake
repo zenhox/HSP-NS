@@ -16,6 +16,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../../core/include"
   "../../network/include"
   "../"
+  "../../lib/ns-3-dev/build"
   )
 
 # Targets to which this target links.

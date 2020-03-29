@@ -5,7 +5,7 @@
 #include "Common.h"
 #include "Time.h"
 #include "Logger.h"
-#include "Simulator.h"
+#include "Core.h"
 
 using namespace HSP_NS;
 
@@ -26,12 +26,21 @@ private:
         shared_ptr<Link> outLink = route(pktRecv->getDstIpAddr());
         if(outLink == nullptr)
             return -1;
+        #ifndef NS3_CORE
         WRITE_LOG(INFO, "[%ss] Router=%u(%s) Route a packet, src=%s, dst=%s.", 
                         Simulator::getTimestamp(Second).c_str(),
                         getNodeId(),
                         getLocalAddress().getAddrStr().c_str(),
                         pktRecv->getSrcIpAddrStr().c_str(), 
                         pktRecv->getDstIpAddrStr().c_str());
+        #else
+        WRITE_LOG(INFO, "[%.12fs] Router=%u(%s) Route a packet, src=%s, dst=%s.", 
+                ns3::Simulator::Now().GetSeconds(),
+                getNodeId(),
+                getLocalAddress().getAddrStr().c_str(),
+                pktRecv->getSrcIpAddrStr().c_str(), 
+                pktRecv->getDstIpAddrStr().c_str());
+        #endif
         /*
         * MAC地址的修改暂不实现
         */

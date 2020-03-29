@@ -5,6 +5,7 @@
 #include "Common.h"
 #include "Time.h"
 #include "Logger.h"
+#include "Core.h"
 
 using namespace HSP_NS;
 
@@ -16,22 +17,39 @@ public:
         _state = 0;
         _replySize = 64;
     }
-    void setStartTime(Time time){Simulator::schedule(getNodeId(), time, "start udp-server application",  &UdpServer::startEvent, this); };
-    void setStopTime(Time time) {Simulator::schedule(getNodeId(), time, "stop udp-server application",  &UdpServer::stopEvent, this); };
+    void setStartTime(Time time){
+        #ifndef NS3_CORE
+        Simulator::schedule(getNodeId(), time, "start udp-server application",  &UdpServer::startEvent, this); 
+        #else
+        ns3::Simulator::Schedule(ns3::PicoSeconds(time.getValue()), &UdpServer::startEvent, this);
+        #endif
+    };
+    void setStopTime(Time time) {
+        #ifndef NS3_CORE
+        Simulator::schedule(getNodeId(), time, "stop udp-server application",  &UdpServer::stopEvent, this); 
+        #else
+        ns3::Simulator::Schedule(ns3::PicoSeconds(time.getValue()), &UdpServer::stopEvent, this);
+        #endif
+    };
     virtual int receive(shared_ptr<Link> fromLink, shared_ptr<Packet> pktRecv){
 
         if(_state == 1) // running
         {
             shared_ptr<Packet> replyPkt = make_shared<Packet>(pktRecv->getDstIpAddr(), pktRecv->getSrcIpAddr(), _replySize, "I get your packet");
-
+            #ifndef NS3_CORE
             WRITE_LOG(INFO, "[%ss] server=%u(%s) receive one packet from %s, reply it.",
-            Simulator::getTimestamp(Second).c_str(),
+                        Simulator::getTimestamp(Second).c_str(),
+                        getNodeId(),
+                        getLocalAddress().getAddrStr().c_str(),
+                        pktRecv->getSrcIpAddrStr().c_str());
+            #else
+            WRITE_LOG(INFO, "[%.12fs] server=%u(%s) receive one packet from %s, reply it.",
+            ns3::Simulator::Now().GetSeconds(),
             getNodeId(),
             getLocalAddress().getAddrStr().c_str(),
-            pktRecv->getSrcIpAddrStr().c_str());
-
+            pktRecv->getSrcIpAddrStr().c_str());  
+            #endif
             sendDefault(replyPkt); // 接收到就发送出去
-
             return 0;
         }
         return -1;
