@@ -1,0 +1,12 @@
+[submodule "lib/g3log"]
+	path = lib/g3log
+	url = https://github.com/KjellKod/g3log.git
+[submodule "lib/skiplist"]
+	path = lib/skiplist
+	url = https://github.com/greensky00/skiplist.git
+[submodule "lib/ns-3-dev"]
+	path = lib/ns-3-dev
+	url = https://github.com/nsnam/ns-3-dev-git.git
+[submodule "lib/ThreadPool"]
+	path = lib/ThreadPool
+	url = https://github.com/progschj/ThreadPool.git
