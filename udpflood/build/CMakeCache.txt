@@ -193,6 +193,9 @@ netwrok_LIB_DEPENDS:STATIC=
 //Dependencies for target
 nscore_LIB_DEPENDS:STATIC=
 
+//Dependencies for target
+threadpool_LIB_DEPENDS:STATIC=
+
 //Value Computed by CMake
 udpflood_BINARY_DIR:STATIC=/home/hox/workspace/bysj/HSP-NS/udpflood/build
 

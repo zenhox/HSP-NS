@@ -4,19 +4,20 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/hox/workspace/bysj/HSP-NS/core/src/Event.cpp" "/home/hox/workspace/bysj/HSP-NS/udpflood/build/CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Event.cpp.o"
-  "/home/hox/workspace/bysj/HSP-NS/core/src/EventManager.cpp" "/home/hox/workspace/bysj/HSP-NS/udpflood/build/CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/EventManager.cpp.o"
-  "/home/hox/workspace/bysj/HSP-NS/core/src/Simulator.cpp" "/home/hox/workspace/bysj/HSP-NS/udpflood/build/CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Simulator.cpp.o"
-  "/home/hox/workspace/bysj/HSP-NS/core/src/Time.cpp" "/home/hox/workspace/bysj/HSP-NS/udpflood/build/CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Time.cpp.o"
+  "/home/hox/workspace/bysj/HSP-NS/core-parallel/src/Event.cpp" "/home/hox/workspace/bysj/HSP-NS/udpflood/build/CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core-parallel/src/Event.cpp.o"
+  "/home/hox/workspace/bysj/HSP-NS/core-parallel/src/MapEM.cpp" "/home/hox/workspace/bysj/HSP-NS/udpflood/build/CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core-parallel/src/MapEM.cpp.o"
+  "/home/hox/workspace/bysj/HSP-NS/core-parallel/src/Simulator.cpp" "/home/hox/workspace/bysj/HSP-NS/udpflood/build/CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core-parallel/src/Simulator.cpp.o"
+  "/home/hox/workspace/bysj/HSP-NS/core-parallel/src/Time.cpp" "/home/hox/workspace/bysj/HSP-NS/udpflood/build/CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core-parallel/src/Time.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../../core/include"
+  "../../core-parallel/include"
   "../../network/include"
   "../"
   "../../lib/ns-3-dev/build"
+  "../../lib/ThreadPool"
   )
 
 # Targets to which this target links.

@@ -10,17 +10,19 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../../core/include"
+  "../../core-parallel/include"
   "../../network/include"
   "../"
   "../../lib/ns-3-dev/build"
+  "../../lib/ThreadPool"
   "/usr/local/include"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/hox/workspace/bysj/HSP-NS/udpflood/build/CMakeFiles/nscore.dir/DependInfo.cmake"
   "/home/hox/workspace/bysj/HSP-NS/udpflood/build/CMakeFiles/netwrok.dir/DependInfo.cmake"
+  "/home/hox/workspace/bysj/HSP-NS/udpflood/build/CMakeFiles/nscore.dir/DependInfo.cmake"
+  "/home/hox/workspace/bysj/HSP-NS/udpflood/build/CMakeFiles/threadpool.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

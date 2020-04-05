@@ -1,0 +1,10 @@
+		g3log created log at: Mon Mar 30 08:21:05 2020
+2020/03/30 08:21:05 853683	DEBUG	[1.000000000000s] Insert event, node=1, event_id=0, description: Send packet
+2020/03/30 08:21:05 853711	DEBUG	[1.000000000000s] Exec event, node=1, event_id=0, description: Send packet
+2020/03/30 08:21:05 853725	DEBUG	[1.000000091552s] Insert event, node=1, event_id=1, description: Packet TransComplete.
+2020/03/30 08:21:05 853734	DEBUG	[1.000000091552s] Exec event, node=1, event_id=1, description: Packet TransComplete.
+2020/03/30 08:21:05 853745	DEBUG	[1.001000091552s] Insert event, node=2, event_id=2, description: Packet Receive.
+2020/03/30 08:21:05 853753	DEBUG	[1.001000091552s] Exec event, node=2, event_id=2, description: Packet Receive.
+2020/03/30 08:21:05 853763	INFO	[1.001000091552s] NodeId=2(10.0.0.2), Receive a packet from 10.0.0.1, msg(test).
+2020/03/30 08:21:05 853773	DEBUG	[1.001000091552s] Destroy the simulator
+g3log g3FileSink shutdown at: 08:21:05 853984

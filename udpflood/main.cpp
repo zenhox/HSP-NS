@@ -38,14 +38,18 @@ int main(){
     args.interval = Time(MilliSecond,100);
     args.startTime = Time(Second,1);
     args.endTime = Time(Second,2000);
+
+
     // args.botNetNum = 1;
     // args.botPerNet = 1;
     // args.victimNum = 1;
-    // args.pktNum = 1;
-    // args.pktSize = 64;
+    // args.pktNum = 2;
+    // args.pktSize = 512;
     // args.interval = Time(MilliSecond,100);
     // args.startTime = Time(Second,1);
     // args.endTime = Time(Second,10);
+
+    Simulator::setSliceSize(Time(NanoSecond,2));
     udpflood(args);
     return 0;
 }
@@ -105,7 +109,7 @@ void udpflood(Args args){
     }
     std::clock_t tBegin = std::clock();
     #ifndef NS3_CORE
-    Simulator::run();
+    Simulator::run(2);
     std::clock_t tEnd = std::clock();
     std::clock_t costTime = (tEnd - tBegin)/CLOCKS_PER_SEC;
     cout<<"Done. Cost real time: " << costTime << " seconds."<<endl;
@@ -144,10 +148,10 @@ void p2r2pTest(){
     server->setStopTime(Time(Second, 15));
 
     #ifndef NS3_CORE 
-    Simulator::run();
+    // Simulator::run();
     Simulator::destroy();
     #else
-    ns3::Simulator::Run();
+    // ns3::Simulator::Run();
     ns3::Simulator::Destroy();
     #endif
 }
@@ -168,10 +172,10 @@ void p2pTest(){
     server->setStopTime(Time(Second, 15));
 
     #ifndef NS3_CORE 
-    Simulator::run();
+    // Simulator::run();
     Simulator::destroy();
     #else
-    ns3::Simulator::Run();
+    // ns3::Simulator::Run();
     ns3::Simulator::Destroy();
     #endif
 }

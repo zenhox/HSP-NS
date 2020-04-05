@@ -29,14 +29,14 @@ int main(int argc, char **argv){
     shared_ptr<Packet> pkt = make_shared<Packet>("10.0.0.1", "10.0.0.2", 64, "test");
 
     //插入事件: n1 在 1 second的时候，将 pkt 发送出去.
-    #ifndef _NS3_CORE_
-    Simulator::schedule(n1->getNodeId(), Time(Second,1), "Send packet",  &Node::sendDefault, n1, pkt);  
-    Simulator::run();
-    Simulator::destroy();
+    #ifdef NS3_CORE
+        ns3::Simulator::Schedule(ns3::Seconds(1), &Node::sendDefault, n1, pkt);
+        ns3::Simulator::Run();
+        ns3::Simulator::Destroy();
     #else
-    ns3::Simulator::Schedule(ns3::Seconds(1), &Node::sendDefault, n1, pkt);
-    ns3::Simulator::Run();
-    ns3::Simulator::Destroy();
+        Simulator::schedule(n1->getNodeId(), Time(Second,1), "Send packet",  &Node::sendDefault, n1, pkt);  
+        Simulator::run();
+        Simulator::destroy();
     #endif
 
 }

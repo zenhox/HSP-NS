@@ -18,17 +18,21 @@ public:
         _replySize = 64;
     }
     void setStartTime(Time time){
-        #ifndef NS3_CORE
-        Simulator::schedule(getNodeId(), time, "start udp-server application",  &UdpServer::startEvent, this); 
-        #else
+        #ifdef NS3_CORE
         ns3::Simulator::Schedule(ns3::PicoSeconds(time.getValue()), &UdpServer::startEvent, this);
+        #elif defined HSP_CORE
+        Simulator::schedule(getNodeId(), Simulator::getTimestamp(getNodeId(), time), "start udp-server application",  &UdpServer::startEvent, this); 
+        #else
+        Simulator::schedule(getNodeId(), time, "start udp-server application",  &UdpServer::startEvent, this); 
         #endif
     };
     void setStopTime(Time time) {
-        #ifndef NS3_CORE
-        Simulator::schedule(getNodeId(), time, "stop udp-server application",  &UdpServer::stopEvent, this); 
-        #else
+        #ifdef NS3_CORE
         ns3::Simulator::Schedule(ns3::PicoSeconds(time.getValue()), &UdpServer::stopEvent, this);
+        #elif defined HSP_CORE
+        Simulator::schedule(getNodeId(), Simulator::getTimestamp(getNodeId(), time), "stop udp-server application",  &UdpServer::stopEvent, this); 
+        #else
+        Simulator::schedule(getNodeId(), time, "stop udp-server application",  &UdpServer::stopEvent, this); 
         #endif
     };
     virtual int receive(shared_ptr<Link> fromLink, shared_ptr<Packet> pktRecv){
@@ -36,18 +40,24 @@ public:
         if(_state == 1) // running
         {
             shared_ptr<Packet> replyPkt = make_shared<Packet>(pktRecv->getDstIpAddr(), pktRecv->getSrcIpAddr(), _replySize, "I get your packet");
-            #ifndef NS3_CORE
+            #ifdef NS3_CORE
+            WRITE_LOG(INFO, "[%.12fs] server=%u(%s) receive one packet from %s, reply it.",
+                        ns3::Simulator::Now().GetSeconds(),
+                        getNodeId(),
+                        getLocalAddress().getAddrStr().c_str(),
+                        pktRecv->getSrcIpAddrStr().c_str());  
+            #elif defined HSP_CORE
+             WRITE_LOG(INFO, "[%ss] server=%u(%s) receive one packet from %s, reply it.",
+                        Simulator::getTimestamp(getNodeId(), Second).c_str(),
+                        getNodeId(),
+                        getLocalAddress().getAddrStr().c_str(),
+                        pktRecv->getSrcIpAddrStr().c_str());           
+            #else
             WRITE_LOG(INFO, "[%ss] server=%u(%s) receive one packet from %s, reply it.",
                         Simulator::getTimestamp(Second).c_str(),
                         getNodeId(),
                         getLocalAddress().getAddrStr().c_str(),
                         pktRecv->getSrcIpAddrStr().c_str());
-            #else
-            WRITE_LOG(INFO, "[%.12fs] server=%u(%s) receive one packet from %s, reply it.",
-            ns3::Simulator::Now().GetSeconds(),
-            getNodeId(),
-            getLocalAddress().getAddrStr().c_str(),
-            pktRecv->getSrcIpAddrStr().c_str());  
             #endif
             sendDefault(replyPkt); // 接收到就发送出去
             return 0;

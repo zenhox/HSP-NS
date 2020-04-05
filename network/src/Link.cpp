@@ -37,28 +37,43 @@ namespace HSP_NS{
         shared_ptr<Packet> pkt = dev.peekTxQueue();
         Time transDelay(Second, pkt->getPktSize() * 8 / _sendRate); //seconds
         shared_ptr<Node> dstNode =  getAnother(srcNode);
-        #ifndef NS3_CORE
-        // insert trans complete event.
-            Simulator::schedule(srcNode->getNodeId(), transDelay + _interframeGap, "Packet TransComplete.", &Link::transmitComplete, this, dstNode, pkt);           
-        #else  // 使用NS3 的 scheduler
+        #ifdef NS3_CORE
             ns3::Time tNext (ns3::PicoSeconds ( (transDelay + _interframeGap).getValue() ));
-            ns3::Simulator::Schedule (tNext, &Link::transmitComplete, this, dstNode, pkt);
+            ns3::Simulator::Schedule (tNext, &Link::transmitsComplete, this, dstNode, pkt);
+        #elif defined HSP_CORE
+            Simulator::schedule(srcNode->getNodeId(), 
+                                Simulator::getTimestamp(srcNode->getNodeId(), transDelay + _interframeGap), 
+                                "Packet TransComplete.", 
+                                &Link::transmitComplete, this, dstNode, pkt);
+        #else
+            // insert trans complete event.
+            Simulator::schedule(srcNode->getNodeId(), 
+                                transDelay + _interframeGap, 
+                                "Packet TransComplete.", 
+                                &Link::transmitComplete, this, dstNode, pkt);
         #endif
+    
     }
 
     /* Event */
     void Link::transmitComplete(shared_ptr<Node> dstNode, shared_ptr<Packet> pkt){
-        #ifndef NS3_CORE
+        shared_ptr<Node> srcNode =  getAnother(dstNode);
+        #ifdef NS3_CORE
         // insert receive event.
+            ns3::Time tNext = ns3::PicoSeconds (_delay.getValue());
+            ns3::Simulator::Schedule (tNext, &Node::receive, dstNode, shared_from_this(), pkt);
+
+        #elif defined HSP_CORE   //我事先的 core-parallel
+            Simulator::schedule(dstNode->getNodeId(),  
+                                Simulator::getTimestamp(srcNode->getNodeId(),_delay),
+                                "Packet Receive.", 
+                                &Node::receive, dstNode, shared_from_this(), pkt);     
+        #else //我实现普通的core
             Simulator::schedule(dstNode->getNodeId(),  
                                 _delay,
                                 "Packet Receive.", 
                                 &Node::receive, dstNode, shared_from_this(), pkt);
-        #else
-            ns3::Time tNext = ns3::PicoSeconds (_delay.getValue());
-            ns3::Simulator::Schedule (tNext, &Node::receive, dstNode, shared_from_this(), pkt);
         #endif
-        shared_ptr<Node> srcNode =  getAnother(dstNode);
         Device& dev = getDevice(srcNode);
         if(dev.isTxEmpty())
             dev.setTxState(IDLE);
