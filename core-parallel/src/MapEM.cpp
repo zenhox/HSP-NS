@@ -5,38 +5,26 @@ using namespace std;
 
 namespace HSP_NS{
 
-    
-    // 要做到线程安全
-    // 如果新插入一个node, 则需要使用全局锁(防止树的结构调整).
-    // 如果node已经存在，使用局部锁.
-    int SliceEvents::insertSafly(const Event& event){
-        NODE_ID node = event.first.getNodeId();
-        _glock.lock();
-        if(_lLocks.find(node) == _lLocks.end())
-        {
-            shared_ptr<std::mutex> mutex_ = make_shared<std::mutex>();
-            _lLocks.insert(std::make_pair(node, mutex_));
-            auto nevents = make_shared<map<EventKey, shared_ptr<EventHandler>>>();
-            _events.insert(std::make_pair(node, nevents));
-        }
-        _glock.unlock();
-        _glock.lock_shared();
-        _lLocks[node]->lock();
-            _events[node]->insert(event);
-            _totallEvent++;
-        _lLocks[node]->unlock();
-        _glock.unlock_shared();
-        return 0;
+    SliceEvents::SliceEvents(UINT64_T id){
+        _sliceId = 0;
+        _eventCnt.store(0);
     }
 
+    SliceEvents::~SliceEvents(){}
+
+    UINT64_T SliceEvents::getEventCount()const{
+        return _eventCnt.load();
+    }
+
+    UINT64_T SliceEvents::getSliceId()const{
+        return _sliceId;
+    }
 
     EventManager::EventManager(){
-        std::lock_guard<std::shared_mutex> lck (_glock);
-        _eventCount = 0;
-        _nodeNum = 0;
+        _eventCnt.store(0);
         _sliceSize = Time(NanoSecond, 3);
         _eventTree.insert(std::make_pair(0,make_shared<SliceEvents>(0)));
-        _curSlice = _eventTree.begin();
+        _curSliceId = 0;
     }
     EventManager& EventManager::getEventManager(){
         static EventManager singleton;
@@ -44,57 +32,73 @@ namespace HSP_NS{
     }
 
     int EventManager::insertEvent(const Event& event){
-        Time time = event.first.getTimestamp();
-        UINT64_T slice_id = calcSlice(time);
-        _glock.lock();
-        _eventCount += 1;
-        if(_slices.find(slice_id) == _slices.end())
-        {
-            // WRITE_LOG(INFO, "Insert slice_id=%llu", slice_id);
-            _slices.insert(slice_id);
-            shared_ptr<SliceEvents> sevents = make_shared<SliceEvents>(slice_id);
-            _eventTree.insert(std::make_pair(slice_id,sevents));    
-        }
-        _glock.unlock(); 
-        _glock.lock_shared();
-        _eventTree[slice_id]->insertSafly(event);
-        _glock.unlock_shared();
+        UINT64_T slice_id = calcSlice(event.first.getTimestamp());
+        // if(slice_id != 0 && slice_id <= _curSliceId)
+        // {
+        //     cout<<"发现了片内插入"<<_curSliceId<<endl;
+        // }
+        shared_ptr<SliceEvents> sevents = make_shared<SliceEvents>(slice_id);
+        auto re = _eventTree.insert(std::make_pair(slice_id,sevents));   
+        // if(re.second == false)
+        //     cout << "插入失败" << endl;
+        // else
+        //     cout << "插入OK" << endl;
+        auto itr = _eventTree.find(slice_id);
+        (itr->second)->insertEvent(event);
+        _eventCnt++;
         return 0;
     }
 
-    UINT64_T EventManager::calcSlice(Time time)const{
-        return time / _sliceSize;
-    }
 
-    void EventManager::destroy(){
-        std::lock_guard<std::shared_mutex> lck (_glock);
-        _eventTree.clear();
-    }
+    void EventManager::destroy(){}
 
     UINT64_T EventManager::getEventCount()const{
-        std::shared_lock<std::shared_mutex> lck(_glock);
-        return _eventCount;
+        return _eventCnt.load();
     }
 
     int EventManager::peekNextSlice(shared_ptr<SliceEvents> &sliceEvents){
-        _glock.lock_shared();
-        _curSlice++;
-        if(_curSlice == _eventTree.end())
+        static bool isBegin = true;
+
+        auto itr = _eventTree.find(_curSliceId.load());
+        if(_curSliceId.load() == 0)
+        {      
+            if( isBegin && (itr->second)->getEventCount() != 0)
+            {
+                sliceEvents = itr->second;
+                isBegin = false;
+                return 0;
+            }
+        }
+        itr++;
+        if(itr.isNull())
+        {
+            // cout << itr->first << endl;
+            // printList();
+            _curSliceId.store(0);
             return -1;
-        _glock.unlock_shared();
-        sliceEvents = _curSlice->second;
+        }   
+        _curSliceId.store(itr->first);     
+        sliceEvents = itr->second;
         return 0;
     }
 
     void EventManager::setSliceSize(Time size){
         _sliceSize = size;
     }
-    void EventManager::setNodeNum(UINT32_T num){
-        _nodeNum = num;
-    }
 
     void EventManager::gc(){
-        std::lock_guard<std::shared_mutex> lck (_glock);
-        _eventTree.erase(_eventTree.begin(), _curSlice);
+        // while(_curSliceId.load() < 10);       
+        // auto itr = _eventTree.find(_curSliceId.load());
+        // while(  _curSliceId.load() != 0 ){
+        //     --itr; 
+        //     auto i = _eventTree.begin();
+        //     while(i != itr){
+        //         // cout << "删除了:" << i->first<<endl;
+        //         i = _eventTree.erase(i);
+        //     }
+
+        //     itr = _eventTree.find(_curSliceId.load());
+        // }
+        // // cout << "结束gc"<<endl;
     }
 }

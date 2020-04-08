@@ -1,24 +1,24 @@
 Determining if the pthread_create exist failed with the following output:
-Change Dir: /home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles/CMakeTmp
+Change Dir: /root/ms-bysj/HSP-NS/test_core/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_a4b49/fast"
-/usr/bin/make -f CMakeFiles/cmTC_a4b49.dir/build.make CMakeFiles/cmTC_a4b49.dir/build
-make[1]: 进入目录“/home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles/CMakeTmp”
-Building C object CMakeFiles/cmTC_a4b49.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_a4b49.dir/CheckSymbolExists.c.o   -c /home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_a4b49
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a4b49.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_a4b49.dir/CheckSymbolExists.c.o  -o cmTC_a4b49 
-CMakeFiles/cmTC_a4b49.dir/CheckSymbolExists.c.o：在函数‘main’中：
-CheckSymbolExists.c:(.text+0x1b)：对‘pthread_create’未定义的引用
+Run Build Command:"/usr/bin/make" "cmTC_a67ea/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a67ea.dir/build.make CMakeFiles/cmTC_a67ea.dir/build
+make[1]: Entering directory '/root/ms-bysj/HSP-NS/test_core/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a67ea.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_a67ea.dir/CheckSymbolExists.c.o   -c /root/ms-bysj/HSP-NS/test_core/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_a67ea
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a67ea.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_a67ea.dir/CheckSymbolExists.c.o  -o cmTC_a67ea 
+CMakeFiles/cmTC_a67ea.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_a4b49.dir/build.make:97: recipe for target 'cmTC_a4b49' failed
-make[1]: *** [cmTC_a4b49] Error 1
-make[1]: 离开目录“/home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles/CMakeTmp”
-Makefile:126: recipe for target 'cmTC_a4b49/fast' failed
-make: *** [cmTC_a4b49/fast] Error 2
+CMakeFiles/cmTC_a67ea.dir/build.make:97: recipe for target 'cmTC_a67ea' failed
+make[1]: *** [cmTC_a67ea] Error 1
+make[1]: Leaving directory '/root/ms-bysj/HSP-NS/test_core/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_a67ea/fast' failed
+make: *** [cmTC_a67ea/fast] Error 2
 
-File /home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+File /root/ms-bysj/HSP-NS/test_core/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
 #include <pthread.h>
 
@@ -34,22 +34,22 @@ int main(int argc, char** argv)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles/CMakeTmp
+Change Dir: /root/ms-bysj/HSP-NS/test_core/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_51ab7/fast"
-/usr/bin/make -f CMakeFiles/cmTC_51ab7.dir/build.make CMakeFiles/cmTC_51ab7.dir/build
-make[1]: 进入目录“/home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles/CMakeTmp”
-Building C object CMakeFiles/cmTC_51ab7.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_51ab7.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_51ab7
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_51ab7.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_51ab7.dir/CheckFunctionExists.c.o  -o cmTC_51ab7 -lpthreads 
-/usr/bin/ld: 找不到 -lpthreads
+Run Build Command:"/usr/bin/make" "cmTC_0e090/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0e090.dir/build.make CMakeFiles/cmTC_0e090.dir/build
+make[1]: Entering directory '/root/ms-bysj/HSP-NS/test_core/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0e090.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_0e090.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_0e090
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0e090.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_0e090.dir/CheckFunctionExists.c.o  -o cmTC_0e090 -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_51ab7.dir/build.make:97: recipe for target 'cmTC_51ab7' failed
-make[1]: *** [cmTC_51ab7] Error 1
-make[1]: 离开目录“/home/hox/workspace/bysj/HSP-NS/test_core/build/CMakeFiles/CMakeTmp”
-Makefile:126: recipe for target 'cmTC_51ab7/fast' failed
-make: *** [cmTC_51ab7/fast] Error 2
+CMakeFiles/cmTC_0e090.dir/build.make:97: recipe for target 'cmTC_0e090' failed
+make[1]: *** [cmTC_0e090] Error 1
+make[1]: Leaving directory '/root/ms-bysj/HSP-NS/test_core/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_0e090/fast' failed
+make: *** [cmTC_0e090/fast] Error 2
 
 

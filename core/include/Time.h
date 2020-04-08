@@ -16,10 +16,13 @@ namespace HSP_NS {
 			Time(const Time& time);
 			UINT64_T getValue()const;
 			String toString(TIME_TYPE timeType)const;
-			
+
+			Time& operator=(const Time& time2);
+
 			bool operator!=(const Time& time2)const;
 			bool operator<(const Time& time2)const;
 			Time operator+(const Time& time2)const;
+			Time operator-(const Time& time2)const;
 	};
 }
 #endif

@@ -6,6 +6,8 @@
 #include "EventManager.h"
 #include "Event.h"
 #include "Logger.h"
+#include <iostream>
+using namespace std;
 
 
 namespace HSP_NS {
@@ -14,7 +16,9 @@ namespace HSP_NS {
 	private:
 		static Time _curTime;
 		static EventManager& _eventManager ;
+
 	public:
+		static Time _minInterval;
 		static void run();
 		static void destroy();
 		static String getTimestamp(TIME_TYPE type);
@@ -50,6 +54,10 @@ namespace HSP_NS {
 			(newEv.first).getNodeId(),
 			(newEv.first).getEventId(),
 			(newEv.first).getDescription().c_str());
+		if( delay.getValue() !=0 && delay < _minInterval)
+        {
+            _minInterval = delay;
+        }
 	}
 	template <typename MEM, typename OBJ, 
 				typename T1>
@@ -63,6 +71,10 @@ namespace HSP_NS {
 			(newEv.first).getNodeId(),
 			(newEv.first).getEventId(),
 			(newEv.first).getDescription().c_str());
+		if( delay.getValue() !=0 && delay < _minInterval)
+        {
+            _minInterval = delay;
+        }
 	}
 	template <typename MEM, typename OBJ, 
 			  typename T1, typename T2>
@@ -76,6 +88,10 @@ namespace HSP_NS {
 			(newEv.first).getNodeId(),
 			(newEv.first).getEventId(),
 			(newEv.first).getDescription().c_str());
+		if( delay.getValue() !=0 && delay < _minInterval)
+        {
+            _minInterval = delay;
+        }
 	}
 	template <typename MEM, typename OBJ, 
 			  typename T1, typename T2, typename T3>
@@ -89,7 +105,10 @@ namespace HSP_NS {
 			(newEv.first).getNodeId(),
 			(newEv.first).getEventId(),
 			(newEv.first).getDescription().c_str());
-		return;
+		if( delay.getValue() !=0 && delay < _minInterval)
+        {
+            _minInterval = delay;
+        }
 	}
 	template <typename MEM, typename OBJ, 
 			  typename T1, typename T2, typename T3, typename T4>
@@ -103,6 +122,10 @@ namespace HSP_NS {
 			(newEv.first).getNodeId(),
 			(newEv.first).getEventId(),
 			(newEv.first).getDescription().c_str());
+		if( delay.getValue() !=0 && delay < _minInterval)
+        {
+            _minInterval = delay;
+        }
 	}
 }
 #endif

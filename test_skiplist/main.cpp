@@ -2,30 +2,38 @@
 #include <vector>
 #include <map>
 #include <ctime>
+#include "Time.h"
 #include <shared_mutex>
 using namespace std;
 
+void eventProcessDelay(Time time){
+  clock_t start=clock(); 
+  clock_t delay= static_cast<double>(time.getValue()) / 1000000000000 * CLOCKS_PER_SEC;
+  while(clock()-start < delay);                                                                 
+}
 
 void test()
 {
-	map<int,int> mp;
-	mp.insert(make_pair(1,1));
-	auto it = mp.begin();
-	mp.insert(make_pair(2,2));
-	it++;
-	mp.insert(make_pair(3,3));
-	mp.insert(make_pair(3,3));
-	mp.insert(make_pair(3,3));
-	mp.insert(make_pair(3,3));
-	mp.insert(make_pair(3,3));
-	mp.insert(make_pair(3,3));
-	mp.insert(make_pair(3,3));
-	mp.insert(make_pair(3,3));
-	mp.insert(make_pair(3,3));
-	mp.insert(make_pair(3,3));
-	mp.insert(make_pair(4,4));
-	cout << it->first << endl;
-	cout << (++it)->first << endl;
+
+	// map<int,int> mp;
+	// mp.insert(make_pair(1,1));
+	// auto it = mp.begin();
+	// mp.insert(make_pair(2,2));
+	// it++;
+	// mp.insert(make_pair(3,3));
+	// mp.insert(make_pair(3,3));
+	// mp.insert(make_pair(3,3));
+	// mp.insert(make_pair(3,3));
+	// mp.insert(make_pair(3,3));
+	// mp.insert(make_pair(3,3));
+	// mp.insert(make_pair(3,3));
+	// mp.insert(make_pair(3,3));
+	// mp.insert(make_pair(3,3));
+	// mp.insert(make_pair(3,3));
+	// mp.insert(make_pair(4,4));
+	// cout << it->first << endl;
+	// cout << (++it)->first << endl;
+
 }
 int main()
 {

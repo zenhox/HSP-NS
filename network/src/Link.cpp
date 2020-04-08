@@ -52,7 +52,6 @@ namespace HSP_NS{
                                 "Packet TransComplete.", 
                                 &Link::transmitComplete, this, dstNode, pkt);
         #endif
-    
     }
 
     /* Event */
@@ -61,18 +60,18 @@ namespace HSP_NS{
         #ifdef NS3_CORE
         // insert receive event.
             ns3::Time tNext = ns3::PicoSeconds (_delay.getValue());
-            ns3::Simulator::Schedule (tNext, &Node::receive, dstNode, shared_from_this(), pkt);
+            ns3::Simulator::Schedule (tNext, &Node::receiveBase, dstNode, shared_from_this(), pkt);
 
         #elif defined HSP_CORE   //我事先的 core-parallel
             Simulator::schedule(dstNode->getNodeId(),  
                                 Simulator::getTimestamp(srcNode->getNodeId(),_delay),
                                 "Packet Receive.", 
-                                &Node::receive, dstNode, shared_from_this(), pkt);     
+                                &Node::receiveBase, dstNode, shared_from_this(), pkt);     
         #else //我实现普通的core
             Simulator::schedule(dstNode->getNodeId(),  
                                 _delay,
                                 "Packet Receive.", 
-                                &Node::receive, dstNode, shared_from_this(), pkt);
+                                &Node::receiveBase, dstNode, shared_from_this(), pkt);
         #endif
         Device& dev = getDevice(srcNode);
         if(dev.isTxEmpty())

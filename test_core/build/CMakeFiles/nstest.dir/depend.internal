@@ -8,7 +8,7 @@ CMakeFiles/nstest.dir/main.cpp.o
  ../../core/include/Logger.h
  ../../core/include/Simulator.h
  ../../core/include/Time.h
- /home/hox/workspace/bysj/HSP-NS/test_core/main.cpp
+ /root/ms-bysj/HSP-NS/test_core/main.cpp
  /usr/local/include/g3log/active.hpp
  /usr/local/include/g3log/atomicbool.hpp
  /usr/local/include/g3log/crashhandler.hpp

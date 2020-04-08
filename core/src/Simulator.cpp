@@ -3,7 +3,7 @@
 namespace HSP_NS{
 
 Time Simulator::_curTime(Second,0); 
-
+Time Simulator::_minInterval(Second,10000000);
 EventManager& Simulator::_eventManager = EventManager::getEventManager();
 void Simulator::run(){
     Event nextEv = std::make_pair(EventKey(), nullptr);

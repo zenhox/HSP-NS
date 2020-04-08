@@ -26,6 +26,7 @@ void p2pTest();
 void udpflood(Args args);
 
 
+UINT32_T THREAD_NUM = 36;
 
 int main(){
     Logger::initLogger("udpflood", "./log");
@@ -33,7 +34,7 @@ int main(){
     args.botNetNum = 10;
     args.botPerNet = 10;
     args.victimNum = 5;
-    args.pktNum = 10000;
+    args.pktNum = 100;
     args.pktSize = 64;
     args.interval = Time(MilliSecond,100);
     args.startTime = Time(Second,1);
@@ -43,13 +44,16 @@ int main(){
     // args.botNetNum = 1;
     // args.botPerNet = 1;
     // args.victimNum = 1;
-    // args.pktNum = 2;
+    // args.pktNum = 10;
     // args.pktSize = 512;
-    // args.interval = Time(MilliSecond,100);
+    // args.interval = Time(MicroSecond,10);
     // args.startTime = Time(Second,1);
     // args.endTime = Time(Second,10);
 
-    Simulator::setSliceSize(Time(NanoSecond,2));
+    #ifdef HSP_CORE
+    Simulator::setSliceSize(Time(NanoSecond,91));
+    #endif
+
     udpflood(args);
     return 0;
 }
@@ -108,74 +112,82 @@ void udpflood(Args args){
         allBotLinks.push_back(links);
     }
     std::clock_t tBegin = std::clock();
-    #ifndef NS3_CORE
-    Simulator::run(2);
-    std::clock_t tEnd = std::clock();
-    std::clock_t costTime = (tEnd - tBegin)/CLOCKS_PER_SEC;
-    cout<<"Done. Cost real time: " << costTime << " seconds."<<endl;
-    cout<<"Total event : "<< Simulator::getEventCount() <<endl;
-    Simulator::destroy();
-    #else
+    #ifdef NS3_CORE
     ns3::Simulator::Run();
     std::clock_t tEnd = std::clock();
     std::clock_t costTime = (tEnd - tBegin)/CLOCKS_PER_SEC;
     cout<<"Done. Cost real time: " << costTime << " seconds."<<endl;
     cout<<"Total event : "<< ns3::Simulator::GetEventCount() <<endl;
     ns3::Simulator::Destroy();
-    #endif
-}
-
-void p2r2pTest(){
-    //生成2个node和link(delay,dataRate)                       目标服务器
-    shared_ptr<UdpClient> client = make_shared<UdpClient>(1, "20.0.0.2", 2, 64, Time(MilliSecond, 1));
-    shared_ptr<UdpServer> server = make_shared<UdpServer>(2, 64);
-    shared_ptr<Router> router = make_shared<Router>(3);
-    shared_ptr<Link> link_c2r = make_shared<Link>(Time(MilliSecond, 1), 1000*1024*1024);  
-    shared_ptr<Link> link_s2r = make_shared<Link>(Time(MilliSecond, 1), 1000*1024*1024);  
-
-    //将client, router, server 连接:    c -- R -- s
-    router->addLink(Ipv4Address("10.0.0.1"), link_c2r);
-    client->addLink(Ipv4Address("10.0.0.2"), link_c2r);
-    router->addLink(Ipv4Address("20.0.0.1"), link_s2r);
-    server->addLink(Ipv4Address("20.0.0.2"), link_s2r);
-
-    router->addRouteItem(Ipv4Address("10.0.0.2"), Ipv4Address("255.255.255.255"), link_c2r);
-    router->addRouteItem(Ipv4Address("20.0.0.2"), Ipv4Address("255.255.255.255"), link_s2r);
-
-    client->setStartTime(Time(Second, 1));
-    client->setStopTime(Time(Second, 15));
-    server->setStartTime(Time(Second, 1));
-    server->setStopTime(Time(Second, 15));
-
-    #ifndef NS3_CORE 
-    // Simulator::run();
+    #elif defined HSP_CORE
+    Simulator::run(THREAD_NUM);
+    std::clock_t tEnd = std::clock();
+    std::clock_t costTime = (tEnd - tBegin)/CLOCKS_PER_SEC;
+    cout<<"Done. Cost real time: " << costTime << " seconds."<<endl;
+    cout<<"Total event : "<< Simulator::getEventCount() <<endl;
     Simulator::destroy();
     #else
-    // ns3::Simulator::Run();
-    ns3::Simulator::Destroy();
-    #endif
-}
-
-void p2pTest(){
-    //生成2个node和一个路由器
-    shared_ptr<UdpClient> client = make_shared<UdpClient>(1, "20.0.0.1", 10, 64, Time(Second, 1));
-    shared_ptr<UdpServer> server = make_shared<UdpServer>(2, 64);
-    shared_ptr<Link> link = make_shared<Link>(Time(MilliSecond, 1), 1000*1024*1024);  
-
-    //将n1,n2通过link连接
-    client->addLink(Ipv4Address("10.0.0.1"), link);
-    server->addLink(Ipv4Address("10.0.0.2"), link);
-
-    client->setStartTime(Time(Second, 1));
-    client->setStopTime(Time(Second, 15));
-    server->setStartTime(Time(Second, 1));
-    server->setStopTime(Time(Second, 15));
-
-    #ifndef NS3_CORE 
-    // Simulator::run();
+    Simulator::run();
+    std::clock_t tEnd = std::clock();
+    std::clock_t costTime = (tEnd - tBegin)/CLOCKS_PER_SEC;
+    cout<<"Done. Cost real time: " << costTime << " seconds."<<endl;
+    cout<<"Total event : "<< Simulator::getEventCount() <<endl;
+    cout<<"Min interval : "<< Simulator::_minInterval.getValue() <<endl;
     Simulator::destroy();
-    #else
-    // ns3::Simulator::Run();
-    ns3::Simulator::Destroy();
     #endif
 }
+
+// void p2r2pTest(){
+//     //生成2个node和link(delay,dataRate)                       目标服务器
+//     shared_ptr<UdpClient> client = make_shared<UdpClient>(1, "20.0.0.2", 2, 64, Time(MilliSecond, 1));
+//     shared_ptr<UdpServer> server = make_shared<UdpServer>(2, 64);
+//     shared_ptr<Router> router = make_shared<Router>(3);
+//     shared_ptr<Link> link_c2r = make_shared<Link>(Time(MilliSecond, 1), 1000*1024*1024);  
+//     shared_ptr<Link> link_s2r = make_shared<Link>(Time(MilliSecond, 1), 1000*1024*1024);  
+
+//     //将client, router, server 连接:    c -- R -- s
+//     router->addLink(Ipv4Address("10.0.0.1"), link_c2r);
+//     client->addLink(Ipv4Address("10.0.0.2"), link_c2r);
+//     router->addLink(Ipv4Address("20.0.0.1"), link_s2r);
+//     server->addLink(Ipv4Address("20.0.0.2"), link_s2r);
+
+//     router->addRouteItem(Ipv4Address("10.0.0.2"), Ipv4Address("255.255.255.255"), link_c2r);
+//     router->addRouteItem(Ipv4Address("20.0.0.2"), Ipv4Address("255.255.255.255"), link_s2r);
+
+//     client->setStartTime(Time(Second, 1));
+//     client->setStopTime(Time(Second, 15));
+//     server->setStartTime(Time(Second, 1));
+//     server->setStopTime(Time(Second, 15));
+
+//     #ifndef NS3_CORE 
+//     // Simulator::run();
+//     Simulator::destroy();
+//     #else
+//     // ns3::Simulator::Run();
+//     ns3::Simulator::Destroy();
+//     #endif
+// }
+
+// void p2pTest(){
+//     //生成2个node和一个路由器
+//     shared_ptr<UdpClient> client = make_shared<UdpClient>(1, "20.0.0.1", 10, 64, Time(Second, 1));
+//     shared_ptr<UdpServer> server = make_shared<UdpServer>(2, 64);
+//     shared_ptr<Link> link = make_shared<Link>(Time(MilliSecond, 1), 1000*1024*1024);  
+
+//     //将n1,n2通过link连接
+//     client->addLink(Ipv4Address("10.0.0.1"), link);
+//     server->addLink(Ipv4Address("10.0.0.2"), link);
+
+//     client->setStartTime(Time(Second, 1));
+//     client->setStopTime(Time(Second, 15));
+//     server->setStartTime(Time(Second, 1));
+//     server->setStopTime(Time(Second, 15));
+
+//     #ifndef NS3_CORE 
+//     // Simulator::run();
+//     Simulator::destroy();
+//     #else
+//     // ns3::Simulator::Run();
+//     ns3::Simulator::Destroy();
+//     #endif
+// }

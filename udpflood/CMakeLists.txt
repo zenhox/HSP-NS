@@ -1,39 +1,49 @@
 cmake_minimum_required( VERSION 2.8 )
-
-
-##是否启用日志
-
 set (CMAKE_CXX_STANDARD 17)
-SET(CMAKE_BUILD_TYPE "Debug")
-SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O2 -Wall -g2 -ggdb  -D HSP_CORE  -D _NO_LOG_")
 
-#SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g2 -ggdb -D _NO_LOG_ -D NS3_CORE")
-#SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g2 -ggdb -D NS3_CORE")
-#SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g2 -ggdb -D _NO_LOG_")
 
-#SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall -D NS3_CORE")
-
-##[修改这里]##
 PROJECT(udpflood)
 MESSAGE(STATUS "Project HSP-NS udpflood")
 
-# 头文件
-include_directories(
-#${PROJECT_SOURCE_DIR}/../core/include/
-${PROJECT_SOURCE_DIR}/../core-parallel/include/
-${PROJECT_SOURCE_DIR}/../network/include/
-${PROJECT_SOURCE_DIR}/
-${PROJECT_SOURCE_DIR}/../lib/ns-3-dev/build/
-${PROJECT_SOURCE_DIR}/../lib/ThreadPool/
-)
+SET(CMAKE_BUILD_TYPE "Debug")
+SET(CORE_TYPE "HSP_CORE")      ## HSP_CORE NS3_CORE   MY_CORE
+SET(LOG "OFF")                 ## OFF
 
-# 源文件
-##[修改这里]##
-#aux_source_directory(${PROJECT_SOURCE_DIR}/../core/src CORE_SRC)
-aux_source_directory(${PROJECT_SOURCE_DIR}/../core-parallel/src CORE_SRC)
+if(CORE_TYPE STREQUAL "MY_CORE")
+    SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O2 -Wall -g2 -ggdb ")
+    # 头文件
+    include_directories(${PROJECT_SOURCE_DIR}/../core/include/)
+    # 源文件
+    aux_source_directory(${PROJECT_SOURCE_DIR}/../core/src CORE_SRC)
+elseif(CORE_TYPE STREQUAL "HSP_CORE")
+    SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O2 -Wall -g2 -ggdb  -D HSP_CORE")
+    # 头文件
+    include_directories(${PROJECT_SOURCE_DIR}/../core-parallel/include/)
+    # 源文件
+    aux_source_directory(${PROJECT_SOURCE_DIR}/../core-parallel/src CORE_SRC)
+elseif(CORE_TYPE STREQUAL "NS3_CORE")
+    SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O2 -Wall -g2 -ggdb  -D NS3_CORE")
+    # 头文件
+    include_directories(${PROJECT_SOURCE_DIR}/../core/include/)
+    # 源文件
+    aux_source_directory(${PROJECT_SOURCE_DIR}/../core/src CORE_SRC)
+endif()
+
+if(LOG STREQUAL "OFF") 
+    SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D _NO_LOG_")
+endif()
+
+include_directories(
+    ${PROJECT_SOURCE_DIR}/../network/include/
+    ${PROJECT_SOURCE_DIR}/
+    ${PROJECT_SOURCE_DIR}/../lib/ns-3-dev/build/
+    ${PROJECT_SOURCE_DIR}/../lib/ThreadPool/
+    ${PROJECT_SOURCE_DIR}/../lib/skiplist/include/
+)
 aux_source_directory(${PROJECT_SOURCE_DIR}/../network/src NETWORK_SRC)
 aux_source_directory(${PROJECT_SOURCE_DIR}/../lib/ThreadPool/ THREAD_POOL_SRC)
 aux_source_directory(${PROJECT_SOURCE_DIR}/ TEST_SRC)
+aux_source_directory(${PROJECT_SOURCE_DIR}/../lib/skiplist/src/ SKIPLIST_SRC)
 
 set(LIB_CORE_NAME nscore)
 add_library(${LIB_CORE_NAME} STATIC ${CORE_SRC})
@@ -43,6 +53,9 @@ add_library(${LIB_NETWORK_NAME} STATIC ${NETWORK_SRC})
 
 set(LIB_THREAD_POOL threadpool)
 add_library(${LIB_THREAD_POOL} STATIC ${THREAD_POOL_SRC})
+
+set(LIB_SKIPLIST skiplist)
+add_library(${LIB_SKIPLIST} STATIC ${SKIPLIST_SRC})
 
 
 # 找到g3logger
@@ -57,5 +70,5 @@ set(LIB_NS3_CORE "${PROJECT_SOURCE_DIR}/../lib/ns-3-dev/build/lib/libns3-dev-cor
 add_executable(${PROJECT_NAME} ${TEST_SRC})
 
 # 把库链接起来
-target_link_libraries(${PROJECT_NAME}  ${LIB_NETWORK_NAME} ${LIB_CORE_NAME} pthread g3logger ${LIB_NS3_CORE} ${LIB_THREAD_POOL}) 
+target_link_libraries(${PROJECT_NAME}  ${LIB_NETWORK_NAME} ${LIB_CORE_NAME} pthread g3logger ${LIB_NS3_CORE} ${LIB_THREAD_POOL} ${LIB_SKIPLIST}) 
 

@@ -55,7 +55,7 @@ namespace HSP_NS{
         return _defaultLink->sendToDevice(shared_from_this(), pktSend);
     }
 
-    int Node::receive(shared_ptr<Link> fromLink, shared_ptr<Packet> pktRecv){
+    int Node::receive(shared_ptr<Link> fromLink, shared_ptr<Packet> pktRecv){    
         #ifdef NS3_CORE
         WRITE_LOG(INFO, "[%.12fs] NodeId=%u(%s), Receive a packet from %s, msg(%s).",
             ns3::Simulator::Now().GetSeconds(),
@@ -91,6 +91,7 @@ namespace HSP_NS{
 
     shared_ptr<Link> Node::route(const Ipv4Address& dstAddr)const
     {
+        AddDelay::RandomDelay(Time(MicroSecond,10), Time(MicroSecond, 10));
         if(_linkAddrMap.size() == 0)
         {
             return nullptr;

@@ -43,11 +43,11 @@ public: //Event
     void startEvent(){
         _state = 1;
         #ifdef NS3_CORE
-            ns3::Simulator::Schedule(ns3::Seconds(0), &UdpClient::sentOnePacket, this);
+            ns3::Simulator::Schedule(ns3::MilliSeconds(100), &UdpClient::sentOnePacket, this);
         #elif defined HSP_CORE
-            Simulator::schedule(getNodeId(), Simulator::getTimestamp(getNodeId(), Time(Second,0)), "Send Begin.",  &UdpClient::sentOnePacket, this); 
+            Simulator::schedule(getNodeId(), Simulator::getTimestamp(getNodeId(), Time(MilliSecond,100)), "Send Begin.",  &UdpClient::sentOnePacket, this); 
         #else
-            Simulator::schedule(getNodeId(), Time(Second,0), "Send Begin.",  &UdpClient::sentOnePacket, this); 
+            Simulator::schedule(getNodeId(), Time(MilliSecond,100), "Send Begin.",  &UdpClient::sentOnePacket, this); 
         #endif
     }
     void stopEvent(){

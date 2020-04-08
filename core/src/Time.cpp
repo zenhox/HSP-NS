@@ -44,6 +44,14 @@ bool Time::operator<(const Time& time2)const{
 Time Time::operator+(const Time& time2)const{
     return Time(BaseTime, _timestamp + time2._timestamp);
 }
+Time Time::operator-(const Time& time2)const{
+    return Time(BaseTime, _timestamp - time2._timestamp);
+}
+
+Time& Time::operator=(const Time& time2){
+    _timestamp = time2._timestamp;
+    return *this;
+}
 
 String Time::toString(TIME_TYPE timeType)const{
     std::ostringstream streamObj;

@@ -40,6 +40,9 @@ bool Time::operator!=(const Time& time2)const{
 bool Time::operator<(const Time& time2)const{
     return _timestamp < time2._timestamp;
 }
+bool Time::operator>(const Time& time2)const{
+    return _timestamp > time2._timestamp;
+}
 
 Time Time::operator+(const Time& time2)const{
     return Time(BaseTime, _timestamp + time2._timestamp);

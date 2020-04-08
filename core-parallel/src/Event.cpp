@@ -51,5 +51,19 @@ namespace HSP_NS {
 	}
 	
 	UINT64_T EventMaker::NEXT_ID = 1;
+
+	bool EventKey::operator>(const EventKey& key2)const{
+		if(_timestamp != key2._timestamp)
+			return _timestamp > key2._timestamp;
+		else if(_eventId != key2._eventId)
+			return _eventId > key2._eventId;
+		return false;
+	}
+	bool EventKey::operator!=(const EventKey& key2)const{
+		if(_timestamp != key2._timestamp)
+			return false;
+		else
+			return _eventId != key2._eventId;
+	}
 }
 

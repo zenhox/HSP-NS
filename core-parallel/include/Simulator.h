@@ -15,9 +15,9 @@ namespace HSP_NS {
 	private:
 		// static Time _curTime;
 		static map<NODE_ID, Time> _curTimes;
-		static EventManager& _eventManager ;
-		static int runOneNode(shared_ptr<map<EventKey, shared_ptr<EventHandler>>> evList);
-		static void gc();
+		static EventManager& _eventManager;
+		static int runOneNode(shared_ptr<sl_map_gc<EventKey, shared_ptr<EventHandler>>> evList);
+		static int gc();
 	public:
 		static void run(UINT32_T threadNum);
 		static void destroy();

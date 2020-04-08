@@ -14,29 +14,24 @@ void Simulator::run(UINT32_T threadNum){
         exit(-1);
     }
     ThreadPool pool(threadNum);
-    shared_ptr<SliceEvents> sliceEvents;  //map<NODE_ID, shread_ptr<map<EventKey, shared_ptr<EventHandler>>>>
+    pool.enqueue(gc);
+
+    shared_ptr<SliceEvents> sliceEvents; 
     std::vector< std::future<int> > results;
     results.reserve(100);
-    int count = 0;
+
+    // _eventManager.printList();
+    
     while(!_eventManager.peekNextSlice(sliceEvents)){
-        count += 1;
-        // WRITE_LOG(INFO, "Run slice_id=%llu", sliceEvents->_sliceId);
-        auto& events = sliceEvents->_events;
-        // 理论上来讲，当前时间片不会有其他插入了.
+        auto& events = sliceEvents->_sliceEvs;
+        // cout << sliceEvents->getEventCount()<<endl;
         results.clear();
         for(auto it = events.begin(); it != events.end(); ++it){
-            // 将不同节点的任务分配给不同的线程
-            // NODE_ID node = it->first;
             results.push_back(pool.enqueue(runOneNode,it->second));
         }
-        if(count % 100 == 0){
-            pool.enqueue(gc);
-            WRITE_LOG(INFO, "GC run once.");
-        }
         for(size_t i=0; i<results.size(); ++i){
-            results[i].get();  // 等待所有线程都完成.
+            results[i].wait(); 
         }
-        // 开启下一个时间片
     }
 }
 
@@ -45,8 +40,8 @@ void Simulator::setSliceSize(Time size){
 }
 
 void Simulator::destroy(){
-    _eventManager.destroy();
     WRITE_LOG(DEBUG, "Destroy the simulator");
+    _eventManager.destroy();
 }
 
 
@@ -66,7 +61,7 @@ UINT64_T Simulator::getEventCount(){
     return _eventManager.getEventCount();
 }
 
-int Simulator::runOneNode(shared_ptr<map<EventKey, shared_ptr<EventHandler>>> evList){
+int Simulator::runOneNode(shared_ptr<sl_map_gc<EventKey, shared_ptr<EventHandler>>> evList){
     int count = 0;
     for(auto it = evList->begin(); it != evList->end(); ++it){
         _curTimes[(it->first).getNodeId()] = (it->first).getTimestamp();
@@ -76,8 +71,9 @@ int Simulator::runOneNode(shared_ptr<map<EventKey, shared_ptr<EventHandler>>> ev
     return count;
 }
 
-void Simulator::gc(){
+int Simulator::gc(){
     _eventManager.gc();
+    return 0;
 }
 
 }

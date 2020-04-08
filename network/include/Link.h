@@ -22,20 +22,21 @@ public:
     void pushTxQueue(shared_ptr<Packet> pkt);
     shared_ptr<Packet> peekTxQueue();
     bool isTxEmpty()const;
+    DEVICE_STATE getTxState()const;
+    void setTxState(DEVICE_STATE state);
+
     // void pushRxQueue(shared_ptr<Packet> pkt);
     // shared_ptr<Packet> peekRxQueue();
-    void setTxState(DEVICE_STATE state);
     // void setRxState(DEVICE_STATE state);
-    DEVICE_STATE getTxState()const;
     // DEVICE_STATE getRxState()const;
     // UINT32_T getRemainTxBuf()const;
     // UINT32_T getRemainRxBuf()const;
 private:
     std::deque<shared_ptr<Packet>> _txQueue;
-    // std::deque<shared_ptr<Packet>> _rxQueue; //暂时不需要rxqueue
     UINT32_T _txSize; 
-    // UINT32_T _rxSize;
     DEVICE_STATE _txState;
+    // UINT32_T _rxSize;
+    // std::deque<shared_ptr<Packet>> _rxQueue; //暂时不需要rxqueue
     // DEVICE_STATE _rxState;
     // UINT32_T _txBufferRemain;
     // UINT32_T _rxBufferRemain;

@@ -1,6 +1,7 @@
 #ifndef _NSNODE_H_
 #define _NSNODE_H_
 
+#include "DelayAdd.h"
 #include "Link.h"
 #include "Packet.h"
 #include "Common.h"
@@ -53,6 +54,11 @@ public:
     // return -1 发送失败
     int sendToLink(shared_ptr<Packet> pktSend, shared_ptr<Link> toLink);
     int sendDefault(shared_ptr<Packet> pktSend); //使用默认路由
+
+    int receiveBase(shared_ptr<Link> fromLink, shared_ptr<Packet> pktRecv){
+        AddDelay::InternetStackProcessDelay();
+        return this->receive(fromLink, pktRecv);
+    }
 
     // receive call_back
     // 接收数据包的事件, 参数就是收到的数据包

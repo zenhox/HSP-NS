@@ -1,1 +1,1 @@
-/usr/bin/c++  -std=c++14  -rdynamic CMakeFiles/nstest.dir/main.cpp.o  -o nstest -Wl,-rpath,/usr/local/lib libnscore.a -lpthread /usr/local/lib/libg3logger.so.1.3.2-86 -lpthread 
+/usr/bin/c++    -rdynamic CMakeFiles/nstest.dir/main.cpp.o  -o nstest -Wl,-rpath,/usr/local/lib libnscore.a -lpthread /usr/local/lib/libg3logger.so.1.3.2-88 -lpthread 

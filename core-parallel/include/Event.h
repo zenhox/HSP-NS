@@ -25,6 +25,8 @@ namespace HSP_NS {
 		EVENT_STATUS getStatus()const;
 		String getDescription()const;
 		bool operator<(const EventKey& key2)const;
+		bool operator>(const EventKey& key2)const;
+		bool operator!=(const EventKey& key2)const;
 	};
 
 	class EventHandler {
