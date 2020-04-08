@@ -26,7 +26,7 @@ void p2pTest();
 void udpflood(Args args);
 
 
-UINT32_T THREAD_NUM = 3;
+UINT32_T THREAD_NUM = 36;
 
 int main(){
     Logger::initLogger("udpflood", "./log");
@@ -41,14 +41,14 @@ int main(){
     args.endTime = Time(Second,2000);
 
 
-    // args.botNetNum = 1;
-    // args.botPerNet = 1;
-    // args.victimNum = 1;
-    // args.pktNum = 10;
-    // args.pktSize = 512;
-    // args.interval = Time(MicroSecond,10);
-    // args.startTime = Time(Second,1);
-    // args.endTime = Time(Second,10);
+    //args.botNetNum = 1;
+    //args.botPerNet = 1;
+    //args.victimNum = 1;
+    //args.pktNum = 5;
+    //args.pktSize = 512;
+    //args.interval = Time(MicroSecond,10);
+    //args.startTime = Time(Second,1);
+    //args.endTime = Time(Second,10);
 
     #ifdef HSP_CORE
     Simulator::setSliceSize(Time(NanoSecond,91));

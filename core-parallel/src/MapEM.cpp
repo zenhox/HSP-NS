@@ -34,14 +34,18 @@ namespace HSP_NS{
 
     int EventManager::insertEvent(const Event& event){
         UINT64_T slice_id = calcSlice(event.first.getTimestamp());
-        // if(slice_id != 0 && slice_id <= _curSliceId)
-        // {
-        //     cout<<"发现了片内插入"<<_curSliceId<<endl;
-        // }
+        if(slice_id != 0 && slice_id <= _curSliceId)
+        {
+            cout<<"发现了片内插入"<<_curSliceId<<endl;
+        }
         shared_ptr<SliceEvents> sevents = make_shared<SliceEvents>(slice_id);
         auto re = _eventTree.insert(std::make_pair(slice_id,sevents));   
-        // if(re.second == false)
-        //     cout << "插入失败" << endl;
+        if(re.second == false)
+	{
+            auto itr = _eventTree.find(slice_id);
+	    if((itr->second)->getEventCount() == 0)
+		    cout << "insert 有问题"<<endl;
+	}
         // else
         //     cout << "插入OK" << endl;
         auto itr = _eventTree.find(slice_id);

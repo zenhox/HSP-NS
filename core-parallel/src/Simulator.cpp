@@ -10,6 +10,7 @@
 namespace HSP_NS{
 
 map<NODE_ID, Time> Simulator::_curTimes;
+std::atomic<int> exeCnt(0);
 
 EventManager& Simulator::_eventManager = EventManager::getEventManager();
 
@@ -55,6 +56,7 @@ void Simulator::run(UINT32_T threadNum){
         auto& events = sliceEvents->_sliceEvs;
         // cout << sliceEvents->getEventCount()<<endl;
         UINT64_T evCnt = sliceEvents->getEventCount();
+	exeCnt += evCnt;
         size_t ndCnt = events.size();
         nodeStatis[getIndexND(ndCnt)]++;
         evetStatis[getIndexEV(evCnt)]++;
@@ -104,6 +106,7 @@ void Simulator::run(UINT32_T threadNum){
         cout << evetStatis[i] << "    ";
     }
     cout << endl;
+    cout <<"共计执行事件:"<<exeCnt.load()<<endl;
 }
 
 
@@ -137,6 +140,7 @@ void Simulator::runOneNode(shared_ptr<sl_map_gc<EventKey, shared_ptr<EventHandle
     for(auto it = evList->begin(); it != evList->end(); ++it){
         _curTimes[(it->first).getNodeId()] = (it->first).getTimestamp();
         (it->second)->invoke();
+	//exeCnt++;
     }
 }
 

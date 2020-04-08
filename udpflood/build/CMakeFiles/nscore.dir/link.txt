@@ -1,2 +1,2 @@
-/usr/bin/ar qc libnscore.a  CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core-parallel/src/Event.cpp.o CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core-parallel/src/MapEM.cpp.o CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core-parallel/src/Simulator.cpp.o CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core-parallel/src/Time.cpp.o
+/usr/bin/ar qc libnscore.a  CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core-parallel/src/Event.cpp.o CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core-parallel/src/MapEM.cpp.o CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core-parallel/src/Simulator.cpp.o CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core-parallel/src/Time.cpp.o
 /usr/bin/ranlib libnscore.a

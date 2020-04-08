@@ -1,2 +1,2 @@
-/usr/bin/ar qc libskiplist.a  CMakeFiles/skiplist.dir/home/hox/workspace/bysj/HSP-NS/lib/skiplist/src/skiplist.cc.o
+/usr/bin/ar qc libskiplist.a  CMakeFiles/skiplist.dir/root/ms-bysj/HSP-NS/lib/skiplist/src/skiplist.cc.o
 /usr/bin/ranlib libskiplist.a
