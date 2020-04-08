@@ -10,3 +10,6 @@
 [submodule "lib/ThreadPool"]
 	path = lib/ThreadPool
 	url = https://github.com/progschj/ThreadPool.git
+[submodule "lib/threadpool11"]
+	path = lib/threadpool11
+	url = https://github.com/tghosgor/threadpool11.git
