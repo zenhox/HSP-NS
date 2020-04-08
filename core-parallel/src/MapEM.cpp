@@ -1,6 +1,7 @@
 #include "MapEM.h"
 #include "Logger.h"
 #include <iostream>
+#include <ctime>
 using namespace std;
 
 namespace HSP_NS{
@@ -87,18 +88,13 @@ namespace HSP_NS{
     }
 
     void EventManager::gc(){
-        // while(_curSliceId.load() < 10);       
-        // auto itr = _eventTree.find(_curSliceId.load());
-        // while(  _curSliceId.load() != 0 ){
-        //     --itr; 
-        //     auto i = _eventTree.begin();
-        //     while(i != itr){
-        //         // cout << "删除了:" << i->first<<endl;
-        //         i = _eventTree.erase(i);
-        //     }
-
-        //     itr = _eventTree.find(_curSliceId.load());
-        // }
-        // // cout << "结束gc"<<endl;
+        cout << "执行一次gc, 执行前size=" << _eventTree.size()<<endl;
+        clock_t bg = clock();
+        int count = 9988;
+        auto itr = _eventTree.begin();
+        while(count--)
+            itr = _eventTree.erase(itr);
+        clock_t ed = clock();
+        cout << "耗费时间" << (double)(ed-bg)/CLOCKS_PER_SEC <<", 执行后size=" << _eventTree.size()<<endl;
     }
 }

@@ -6,7 +6,7 @@
 #include "MapEM.h"
 #include "Event.h"
 #include "Logger.h"
-#include "ThreadPool.h"
+
 
 
 namespace HSP_NS {
@@ -16,7 +16,7 @@ namespace HSP_NS {
 		// static Time _curTime;
 		static map<NODE_ID, Time> _curTimes;
 		static EventManager& _eventManager;
-		static int runOneNode(shared_ptr<sl_map_gc<EventKey, shared_ptr<EventHandler>>> evList);
+		static void runOneNode(shared_ptr<sl_map_gc<EventKey, shared_ptr<EventHandler>>> evList);
 		static int gc();
 	public:
 		static void run(UINT32_T threadNum);

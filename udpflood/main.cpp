@@ -26,7 +26,7 @@ void p2pTest();
 void udpflood(Args args);
 
 
-UINT32_T THREAD_NUM = 36;
+UINT32_T THREAD_NUM = 3;
 
 int main(){
     Logger::initLogger("udpflood", "./log");

@@ -8,6 +8,7 @@ MESSAGE(STATUS "Project HSP-NS udpflood")
 SET(CMAKE_BUILD_TYPE "Debug")
 SET(CORE_TYPE "HSP_CORE")      ## HSP_CORE NS3_CORE   MY_CORE
 SET(LOG "OFF")                 ## OFF
+SET(THREADPOOL "A")            ## A B
 
 if(CORE_TYPE STREQUAL "MY_CORE")
     SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O2 -Wall -g2 -ggdb ")
@@ -33,15 +34,27 @@ if(LOG STREQUAL "OFF")
     SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D _NO_LOG_")
 endif()
 
+if(THREADPOOL STREQUAL "A") 
+    # 头文件
+    include_directories(${PROJECT_SOURCE_DIR}/../lib/ThreadPool/)
+    # 源文件
+    aux_source_directory(${PROJECT_SOURCE_DIR}/../lib/ThreadPool/ THREAD_POOL_SRC)
+    SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D THREAD_POOL_A")
+elseif(THREADPOOL STREQUAL "B")
+    # 头文件
+    include_directories(${PROJECT_SOURCE_DIR}/../lib/threadpool11/threadpool11/include)
+    # 源文件
+    aux_source_directory(${PROJECT_SOURCE_DIR}/../lib/threadpool11/threadpool11/src THREAD_POOL_SRC)
+    SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D THREAD_POOL_B")
+endif()
+
 include_directories(
     ${PROJECT_SOURCE_DIR}/../network/include/
     ${PROJECT_SOURCE_DIR}/
     ${PROJECT_SOURCE_DIR}/../lib/ns-3-dev/build/
-    ${PROJECT_SOURCE_DIR}/../lib/ThreadPool/
     ${PROJECT_SOURCE_DIR}/../lib/skiplist/include/
 )
 aux_source_directory(${PROJECT_SOURCE_DIR}/../network/src NETWORK_SRC)
-aux_source_directory(${PROJECT_SOURCE_DIR}/../lib/ThreadPool/ THREAD_POOL_SRC)
 aux_source_directory(${PROJECT_SOURCE_DIR}/ TEST_SRC)
 aux_source_directory(${PROJECT_SOURCE_DIR}/../lib/skiplist/src/ SKIPLIST_SRC)
 
@@ -64,6 +77,9 @@ find_package(g3logger CONFIG REQUIRED)
 # 找到ns3 core
 set(LIB_NS3_CORE "${PROJECT_SOURCE_DIR}/../lib/ns-3-dev/build/lib/libns3-dev-core-debug.so")
 
+## 找到boost
+find_package(Boost)
+include_directories(${Boost_INCLUDE_DIR})
 
 # 编译主函数，生成可执行文件
 #set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)

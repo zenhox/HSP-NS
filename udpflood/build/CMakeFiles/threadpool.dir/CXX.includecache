@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/root/ms-bysj/HSP-NS/lib/ThreadPool/ThreadPool.h
+/home/hox/workspace/bysj/HSP-NS/lib/ThreadPool/ThreadPool.h
 vector
 -
 queue
@@ -26,7 +26,7 @@ functional
 stdexcept
 -
 
-/root/ms-bysj/HSP-NS/lib/ThreadPool/example.cpp
+/home/hox/workspace/bysj/HSP-NS/lib/ThreadPool/example.cpp
 iostream
 -
 vector
@@ -34,5 +34,5 @@ vector
 chrono
 -
 ThreadPool.h
-/root/ms-bysj/HSP-NS/lib/ThreadPool/ThreadPool.h
+/home/hox/workspace/bysj/HSP-NS/lib/ThreadPool/ThreadPool.h
 
