@@ -3,6 +3,7 @@
 
 #include <memory>
 #include "Common.h"
+#include <atomic>
 #include "Time.h"
 using std::shared_ptr;
 using std::make_shared;
@@ -38,7 +39,7 @@ namespace HSP_NS {
 	
 	class EventMaker{
 	public:
-		static UINT64_T NEXT_ID;
+		static std::atomic<UINT64_T> NEXT_ID;
 		/**
 		* \copybrief MakeEvent(MEM,OBJ)
 		* \tparam MEM \deduced The class method function signature(func).
@@ -109,7 +110,7 @@ namespace HSP_NS {
 			MEM _function;
 		};
 		shared_ptr<EventHandler> evHandler = make_shared<EventMemberImpl0>(obj, mem_ptr);
-		return std::make_pair(EventKey(EventMaker::NEXT_ID++, nodeId, timeToRun, WAIT, desc), evHandler);
+		return std::make_pair(EventKey(NEXT_ID.fetch_add(1,std::memory_order_relaxed), nodeId, timeToRun, WAIT, desc), evHandler);
 	}
 	template <typename MEM, typename OBJ,
 			  typename T1>
@@ -135,7 +136,7 @@ namespace HSP_NS {
 			T1 _arg1;
 		};
 		shared_ptr<EventHandler> evHandler = make_shared<EventMemberImpl1>(obj, mem_ptr,a1);
-		return std::make_pair(EventKey(EventMaker::NEXT_ID++, nodeId, timeToRun, WAIT, desc), evHandler);
+		return std::make_pair(EventKey(NEXT_ID.fetch_add(1,std::memory_order_relaxed), nodeId, timeToRun, WAIT, desc), evHandler);
 	}
 	template <typename MEM, typename OBJ,
 				typename T1,  typename T2>
@@ -163,7 +164,7 @@ namespace HSP_NS {
 			T2 _arg2;
 		};
 		shared_ptr<EventHandler> evHandler = make_shared<EventMemberImpl2>(obj, mem_ptr, a1, a2);
-		return std::make_pair(EventKey(EventMaker::NEXT_ID++, nodeId, timeToRun, WAIT, desc), evHandler);
+		return std::make_pair(EventKey(NEXT_ID.fetch_add(1,std::memory_order_relaxed), nodeId, timeToRun, WAIT, desc), evHandler);
 	}
 
 	template <typename MEM, typename OBJ,
@@ -194,7 +195,7 @@ namespace HSP_NS {
 			T3 _arg3;
 		};
 		shared_ptr<EventHandler> evHandler = make_shared<EventMemberImpl3>(obj, mem_ptr,a1,a2,a3);
-		return std::make_pair(EventKey(EventMaker::NEXT_ID++, nodeId, timeToRun, WAIT, desc), evHandler);
+		return std::make_pair(EventKey(NEXT_ID.fetch_add(1,std::memory_order_relaxed), nodeId, timeToRun, WAIT, desc), evHandler);
 	}
 
 	template <typename MEM, typename OBJ,
@@ -227,7 +228,7 @@ namespace HSP_NS {
 			T3 _arg4;
 		};
 		shared_ptr<EventHandler> evHandler = make_shared<EventMemberImpl4>(obj, mem_ptr, a1,a2,a3,a4);
-		return std::make_pair(EventKey(EventMaker::NEXT_ID++, nodeId, timeToRun, WAIT, desc), evHandler);
+		return std::make_pair(EventKey(NEXT_ID.fetch_add(1,std::memory_order_relaxed), nodeId, timeToRun, WAIT, desc), evHandler);
 	}
 	
 }

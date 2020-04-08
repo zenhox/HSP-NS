@@ -50,8 +50,8 @@ namespace HSP_NS {
 		return false;
 	}
 	
-	UINT64_T EventMaker::NEXT_ID = 1;
-
+    std::atomic<UINT64_T> EventMaker::NEXT_ID(1);
+	
 	bool EventKey::operator>(const EventKey& key2)const{
 		if(_timestamp != key2._timestamp)
 			return _timestamp > key2._timestamp;

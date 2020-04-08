@@ -40,12 +40,12 @@ namespace HSP_NS{
         }
         shared_ptr<SliceEvents> sevents = make_shared<SliceEvents>(slice_id);
         auto re = _eventTree.insert(std::make_pair(slice_id,sevents));   
-        if(re.second == false)
-	{
-            auto itr = _eventTree.find(slice_id);
-	    if((itr->second)->getEventCount() == 0)
-		    cout << "insert 有问题"<<endl;
-	}
+        // if(re.second == false)
+	    // {
+        //     auto itr = _eventTree.find(slice_id);
+	    //     if((itr->second)->getEventCount() == 0)
+		//     cout << "insert 有问题"<<endl;
+	    // }
         // else
         //     cout << "插入OK" << endl;
         auto itr = _eventTree.find(slice_id);

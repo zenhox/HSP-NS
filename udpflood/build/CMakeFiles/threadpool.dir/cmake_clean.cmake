@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/threadpool.dir/root/ms-bysj/HSP-NS/lib/ThreadPool/example.cpp.o"
+  "CMakeFiles/threadpool.dir/home/hox/workspace/bysj/HSP-NS/lib/ThreadPool/example.cpp.o"
   "libthreadpool.pdb"
   "libthreadpool.a"
 )

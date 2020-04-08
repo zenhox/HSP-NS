@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/root/ms-bysj/HSP-NS/udpflood/main.cpp" "/root/ms-bysj/HSP-NS/udpflood/build/CMakeFiles/udpflood.dir/main.cpp.o"
+  "/home/hox/workspace/bysj/HSP-NS/udpflood/main.cpp" "/home/hox/workspace/bysj/HSP-NS/udpflood/build/CMakeFiles/udpflood.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -21,10 +21,10 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/root/ms-bysj/HSP-NS/udpflood/build/CMakeFiles/netwrok.dir/DependInfo.cmake"
-  "/root/ms-bysj/HSP-NS/udpflood/build/CMakeFiles/nscore.dir/DependInfo.cmake"
-  "/root/ms-bysj/HSP-NS/udpflood/build/CMakeFiles/threadpool.dir/DependInfo.cmake"
-  "/root/ms-bysj/HSP-NS/udpflood/build/CMakeFiles/skiplist.dir/DependInfo.cmake"
+  "/home/hox/workspace/bysj/HSP-NS/udpflood/build/CMakeFiles/netwrok.dir/DependInfo.cmake"
+  "/home/hox/workspace/bysj/HSP-NS/udpflood/build/CMakeFiles/nscore.dir/DependInfo.cmake"
+  "/home/hox/workspace/bysj/HSP-NS/udpflood/build/CMakeFiles/threadpool.dir/DependInfo.cmake"
+  "/home/hox/workspace/bysj/HSP-NS/udpflood/build/CMakeFiles/skiplist.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.
