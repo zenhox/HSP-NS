@@ -40,7 +40,7 @@ public:
 class Node : public std::enable_shared_from_this<Node>{
 
 public:
-    Node(NODE_ID id);
+    Node(NODE_ID id=0);
 
     NODE_ID getNodeId()const{return _nodeId;}
 
@@ -70,10 +70,11 @@ public:
     void setDefaultRoute(shared_ptr<Link> link);
     virtual shared_ptr<Link> route(const Ipv4Address& dstAddr)const;
     virtual shared_ptr<Link> route(const String& dstAddr)const;
+protected:
+    map<RouteMatch, shared_ptr<Link>> _routeTable;
+    map<shared_ptr<Link>, Ipv4Address> _linkAddrMap;
 private:
     NODE_ID _nodeId;
-    map<shared_ptr<Link>, Ipv4Address> _linkAddrMap;
-    map<RouteMatch, shared_ptr<Link>> _routeTable;
     shared_ptr<Link> _defaultLink;
 };
 

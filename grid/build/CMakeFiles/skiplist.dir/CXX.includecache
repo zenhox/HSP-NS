@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../../lib/skiplist/include/skiplist.h
+stddef.h
+-
+stdint.h
+-
+atomic
+-
+
+/home/hox/workspace/bysj/HSP-NS/lib/skiplist/src/skiplist.cc
+skiplist.h
+/home/hox/workspace/bysj/HSP-NS/lib/skiplist/src/skiplist.h
+stdlib.h
+-
+skiplist_debug.h
+/home/hox/workspace/bysj/HSP-NS/lib/skiplist/src/skiplist_debug.h
+thread
+-
+sched.h
+-
+

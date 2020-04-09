@@ -39,7 +39,7 @@ public:
             Simulator::schedule(getNodeId(), time, "stop udp-client application",  &UdpClient::stopEvent, this);      
         #endif
     };
-public: //Event
+private: //Event
     void startEvent(){
         _state = 1;
         #ifdef NS3_CORE
