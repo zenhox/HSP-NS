@@ -20,7 +20,7 @@ struct Args{
 
 void test1(Args args);
 
-UINT32_T THREAD_NUM = 2;
+UINT32_T THREAD_NUM = 36;
 int main()
 {
     Logger::initLogger("grid", "./log");
@@ -33,6 +33,9 @@ int main()
     args.interval = Time(MilliSecond,100);
     args.startTime = Time(Second,1);
     args.endTime = Time(Second,20);
+    #ifdef HSP_CORE
+    Simulator::setSliceSize(Time(NanoSecond,900));
+    #endif
     test1(args);
 }
 

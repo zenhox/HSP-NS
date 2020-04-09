@@ -1,2 +1,2 @@
-/usr/bin/ar qc libthreadpool.a  CMakeFiles/threadpool.dir/home/hox/workspace/bysj/HSP-NS/lib/ThreadPool/example.cpp.o
+/usr/bin/ar qc libthreadpool.a  CMakeFiles/threadpool.dir/root/ms-bysj/HSP-NS/lib/ThreadPool/example.cpp.o
 /usr/bin/ranlib libthreadpool.a

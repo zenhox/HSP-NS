@@ -6,5 +6,5 @@ CXX_FLAGS =  -O2 -Wall -g2 -ggdb  -D HSP_CORE -D _NO_LOG_ -D THREAD_POOL_A   -st
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/hox/workspace/bysj/HSP-NS/grid/../core-parallel/include -I/home/hox/workspace/bysj/HSP-NS/grid/../lib/ThreadPool -I/home/hox/workspace/bysj/HSP-NS/grid/../network/include -I/home/hox/workspace/bysj/HSP-NS/grid -I/home/hox/workspace/bysj/HSP-NS/grid/../lib/ns-3-dev/build -I/home/hox/workspace/bysj/HSP-NS/grid/../lib/skiplist/include -isystem /usr/local/include 
+CXX_INCLUDES = -I/root/ms-bysj/HSP-NS/grid/../core-parallel/include -I/root/ms-bysj/HSP-NS/grid/../lib/ThreadPool -I/root/ms-bysj/HSP-NS/grid/../network/include -I/root/ms-bysj/HSP-NS/grid -I/root/ms-bysj/HSP-NS/grid/../lib/ns-3-dev/build -I/root/ms-bysj/HSP-NS/grid/../lib/skiplist/include -isystem /usr/local/include 
 
