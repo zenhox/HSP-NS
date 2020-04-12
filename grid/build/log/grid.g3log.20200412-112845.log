@@ -1,0 +1,11 @@
+		g3log created log at: Sun Apr 12 11:28:47 2020
+1 Node(1,1), Total recv (114) packet, size (176128), recv sample([1.100068235000] Dst:<invalid addr> Src:10.2.1.2 Size=512; [5.100043660000] Dst:<invalid addr> Src:10.3.3.1 Size=2560; )
+2 Node(1,2), Total recv (155) packet, size (237056), recv sample([1.100076405000] Dst:<invalid addr> Src:20.1.2.2 Size=512; [4.100021830000] Dst:<invalid addr> Src:20.2.3.1 Size=2048; )
+3 Node(1,3), Total recv (116) packet, size (178176), recv sample([1.100067320000] Dst:<invalid addr> Src:10.2.1.2 Size=512; [5.100021830000] Dst:<invalid addr> Src:10.3.3.1 Size=2560; )
+4 Node(2,1), Total recv (155) packet, size (237056), recv sample([1.100076405000] Dst:<invalid addr> Src:20.1.2.2 Size=512; [4.100021830000] Dst:<invalid addr> Src:20.3.2.1 Size=2048; )
+5 Node(2,2), Total recv (200) packet, size (307200), recv sample([1.100066405000] Dst:<invalid addr> Src:10.2.1.2 Size=512; [3.100066405000] Dst:<invalid addr> Src:10.3.1.1 Size=1536; )
+6 Node(2,3), Total recv (155) packet, size (239104), recv sample([1.100076405000] Dst:<invalid addr> Src:20.1.2.2 Size=512; [4.100021830000] Dst:<invalid addr> Src:20.3.3.2 Size=2048; )
+7 Node(3,1), Total recv (116) packet, size (178176), recv sample([1.100067320000] Dst:<invalid addr> Src:10.2.1.2 Size=512; [5.100021830000] Dst:<invalid addr> Src:20.3.3.1 Size=2560; )
+8 Node(3,2), Total recv (155) packet, size (239104), recv sample([1.100076405000] Dst:<invalid addr> Src:20.1.2.2 Size=512; [4.100021830000] Dst:<invalid addr> Src:10.3.3.2 Size=2048; )
+9 Node(3,3), Total recv (114) packet, size (174080), recv sample([1.100066405000] Dst:<invalid addr> Src:10.2.1.2 Size=512; [5.100043660000] Dst:<invalid addr> Src:20.3.3.1 Size=2560; )
+g3log g3FileSink shutdown at: 11:28:47 885909

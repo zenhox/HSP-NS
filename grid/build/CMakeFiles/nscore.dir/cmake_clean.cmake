@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core/src/Event.cpp.o"
-  "CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core/src/EventManager.cpp.o"
-  "CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core/src/Simulator.cpp.o"
-  "CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core/src/Time.cpp.o"
+  "CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Event.cpp.o"
+  "CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/EventManager.cpp.o"
+  "CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Simulator.cpp.o"
+  "CMakeFiles/nscore.dir/home/hox/workspace/bysj/HSP-NS/core/src/Time.cpp.o"
   "libnscore.pdb"
   "libnscore.a"
 )

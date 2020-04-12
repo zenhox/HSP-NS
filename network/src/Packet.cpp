@@ -30,4 +30,7 @@ namespace HSP_NS{
     String Packet::getMessage()const{
         return _msg;
     }
+    String Packet::toString()const{
+        return "Dst:"+getDstIpAddrStr()+" Src:" +getSrcIpAddrStr() + " Size=" + std::to_string(_pktSize);
+    }
 }

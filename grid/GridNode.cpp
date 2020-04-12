@@ -66,6 +66,7 @@ namespace HSP_NS{
     }
     void GridNode::stopEvent()
     {
+        writeLog();
         _state = 0;
     }
 
@@ -80,15 +81,21 @@ namespace HSP_NS{
         if(TTL == 0)
             return -1;
 
+        string timeStr;
+        char c_timeStr[20];
         #ifdef NS3_CORE
+        sprintf( c_timeStr,  "%.12f", ns3::Simulator::Now().GetSeconds() ); 
+        timeStr = string(c_timeStr);
         WRITE_LOG(INFO, "[%.12fs] client=(%d,%d) receive a packet(TTL=%d), flooding...",
                         ns3::Simulator::Now().GetSeconds(),
                         _posX, _posY, TTL);
         #elif defined HSP_CORE
+        timeStr = Simulator::getTimestamp(getNodeId(), Second);
         WRITE_LOG(INFO, "[%ss] client=(%d,%d) receive a packet(TTL=%d), flooding...",
                         Simulator::getTimestamp(getNodeId(), Second).c_str(),
                         _posX, _posY, TTL);
         #else
+        timeStr = Simulator::getTimestamp(Second);
         WRITE_LOG(INFO, "[%ss] client=(%d,%d) receive a packet(TTL=%d), flooding...",
                         Simulator::getTimestamp(Second).c_str(),
                         _posX, _posY, TTL);
@@ -96,6 +103,7 @@ namespace HSP_NS{
         
         String srcAddr = pktRecv->getSrcIpAddrStr();
         UINT32_T pktSize = pktRecv->getPktSize();
+
         String msg = pktRecv->getMessage();
         for(auto& link : _linkAddrMap){
             if(link.first != fromLink){
@@ -103,7 +111,22 @@ namespace HSP_NS{
                 sendToLink(pkt, link.first);
             }
         }
+        //执行统计
+            //** 用于验证正确性
+        _recvCnt += 1;
+        _recvSize += pktSize;
+        if(_recvCnt == 10 || _recvCnt == 100 || _recvCnt == 1000){
+            _record.push_back("[" + timeStr + "] " + pktRecv->toString() + "; ");
+        }
         return 0;
+    }
+
+    void GridNode::writeLog(){
+        string sampleString;
+        for(auto& s : _record)
+            sampleString += s;
+        FORCE_WRITE_LOG(INFO, "%u Node(%d,%d), Total recv (%d) packet, size (%u), recv sample(%s)", 
+                        getNodeId(), _posX, _posY, _recvCnt, _recvSize, sampleString.c_str());
     }
 
     void GridNode::sentOnePacket(){

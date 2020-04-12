@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/skiplist.dir/root/ms-bysj/HSP-NS/lib/skiplist/src/skiplist.cc.o"
+  "CMakeFiles/skiplist.dir/home/hox/workspace/bysj/HSP-NS/lib/skiplist/src/skiplist.cc.o"
   "libskiplist.pdb"
   "libskiplist.a"
 )

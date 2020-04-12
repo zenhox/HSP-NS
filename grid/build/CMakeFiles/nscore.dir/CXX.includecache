@@ -56,21 +56,21 @@ iostream
 Common.h
 ../../core/include/Common.h
 
-/root/ms-bysj/HSP-NS/core/src/Event.cpp
+/home/hox/workspace/bysj/HSP-NS/core/src/Event.cpp
 Event.h
-/root/ms-bysj/HSP-NS/core/src/Event.h
+/home/hox/workspace/bysj/HSP-NS/core/src/Event.h
 
-/root/ms-bysj/HSP-NS/core/src/EventManager.cpp
+/home/hox/workspace/bysj/HSP-NS/core/src/EventManager.cpp
 EventManager.h
-/root/ms-bysj/HSP-NS/core/src/EventManager.h
+/home/hox/workspace/bysj/HSP-NS/core/src/EventManager.h
 
-/root/ms-bysj/HSP-NS/core/src/Simulator.cpp
+/home/hox/workspace/bysj/HSP-NS/core/src/Simulator.cpp
 Simulator.h
-/root/ms-bysj/HSP-NS/core/src/Simulator.h
+/home/hox/workspace/bysj/HSP-NS/core/src/Simulator.h
 
-/root/ms-bysj/HSP-NS/core/src/Time.cpp
+/home/hox/workspace/bysj/HSP-NS/core/src/Time.cpp
 Time.h
-/root/ms-bysj/HSP-NS/core/src/Time.h
+/home/hox/workspace/bysj/HSP-NS/core/src/Time.h
 sstream
 -
 iomanip

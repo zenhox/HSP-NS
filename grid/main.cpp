@@ -22,19 +22,30 @@ struct Args{
 
 void test1(Args args);
 
-UINT32_T THREAD_NUM = 6;
+UINT32_T THREAD_NUM = 2;
 int main()
 {
     Logger::initLogger("grid", "./log");
     Args args;
-    args.rowSize = 10;
-    args.colSize = 10;
-    args.pktNum = 30;
+    // args.rowSize = 10;
+    // args.colSize = 10;
+    // args.pktNum = 30;
+    // args.pktSize = 512;
+    // args.pktTTL = 10;
+    // args.interval = Time(MilliSecond,100);
+    // args.startTime = Time(Second,1);
+    // args.endTime = Time(Second,20);
+
+    //DEBUG
+    args.rowSize = 3;
+    args.colSize = 3;
+    args.pktNum = 1;
     args.pktSize = 512;
     args.pktTTL = 10;
     args.interval = Time(MilliSecond,100);
     args.startTime = Time(Second,1);
     args.endTime = Time(Second,20);
+
     #ifdef HSP_CORE
     Simulator::setSliceSize(Time(NanoSecond,900));
     #endif
@@ -49,7 +60,7 @@ void test1(Args args){
     UINT32_T node_id = 1;
     for(int i=0; i<rowSize; ++i){
         for(int j=0; j<colSize; ++j){
-            shared_ptr<GridNode> node = make_shared<GridNode>(node_id++, args.pktNum, args.pktSize * (i+j), args.pktTTL, args.interval);
+            shared_ptr<GridNode> node = make_shared<GridNode>(node_id++, args.pktNum, args.pktSize * (i + j + 1), args.pktTTL, args.interval);
             node->setStartTime(args.startTime + Time(Second, i+j));
             node->setStopTime(args.endTime);
             node->setPos(i+1, j+1);

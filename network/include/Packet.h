@@ -18,6 +18,7 @@ public:
     String getSrcIpAddrStr()const;
     UINT32_T getPktSize()const;
     String getMessage()const;
+    String toString()const;
 private:
     //暂时不写MAC地址
     Ipv4Address _ipv4Src;

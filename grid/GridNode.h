@@ -22,6 +22,7 @@ private:
     void startEvent();
     void stopEvent();
     void sentOnePacket();
+    void writeLog();
 private:
     int _state;
     UINT32_T _pktNum;
@@ -32,6 +33,11 @@ private:
 
     int _posX;
     int _posY;
+
+    //** 用于验证正确性
+    vector<String> _record;//第10, 100, 1000个包的信息
+    int _recvCnt; //共接受多少个包
+    UINT32_T _recvSize; //共接受多少字节
 };
 
 
