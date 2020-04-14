@@ -3,8 +3,10 @@
 #include <iostream>
 #include <vector>
 #include <memory>
+#include <chrono> 
 using namespace std;
 using namespace HSP_NS;
+using namespace chrono;
 
 
 struct Args{
@@ -20,16 +22,16 @@ struct Args{
 
 void test1(Args args);
 
-UINT32_T THREAD_NUM = 36;
+UINT32_T THREAD_NUM = 6;
 int main()
 {
     Logger::initLogger("grid", "./log");
     Args args;
     args.rowSize = 10;
     args.colSize = 10;
-    args.pktNum = 10;
+    args.pktNum = 30;
     args.pktSize = 512;
-    args.pktTTL = 5;
+    args.pktTTL = 10;
     args.interval = Time(MilliSecond,100);
     args.startTime = Time(Second,1);
     args.endTime = Time(Second,20);
@@ -47,8 +49,8 @@ void test1(Args args){
     UINT32_T node_id = 1;
     for(int i=0; i<rowSize; ++i){
         for(int j=0; j<colSize; ++j){
-            shared_ptr<GridNode> node = make_shared<GridNode>(node_id++, args.pktNum, args.pktSize, args.pktTTL, args.interval);
-            node->setStartTime(args.startTime);
+            shared_ptr<GridNode> node = make_shared<GridNode>(node_id++, args.pktNum, args.pktSize * (i+j), args.pktTTL, args.interval);
+            node->setStartTime(args.startTime + Time(Second, i+j));
             node->setStopTime(args.endTime);
             node->setPos(i+1, j+1);
             nodes[i][j] = node;
@@ -71,26 +73,26 @@ void test1(Args args){
             }
         }
     }
-    std::clock_t tBegin = std::clock();
+    auto start = system_clock::now();
     #ifdef NS3_CORE
     ns3::Simulator::Run();
-    std::clock_t tEnd = std::clock();
-    std::clock_t costTime = (tEnd - tBegin)/CLOCKS_PER_SEC;
-    cout<<"Done. Cost real time: " << costTime << " seconds."<<endl;
+    auto end   = system_clock::now();
+    auto duration = duration_cast<microseconds>(end - start);
+    cout<<"Done. Cost real time: " << double(duration.count()) * microseconds::period::num / microseconds::period::den  << " seconds."<<endl;
     cout<<"Total event : "<< ns3::Simulator::GetEventCount() <<endl;
     ns3::Simulator::Destroy();
     #elif defined HSP_CORE
     Simulator::run(THREAD_NUM);
-    std::clock_t tEnd = std::clock();
-    std::clock_t costTime = (tEnd - tBegin)/CLOCKS_PER_SEC;
-    cout<<"Done. Cost real time: " << costTime << " seconds."<<endl;
+    auto end = system_clock::now();
+    auto duration = duration_cast<microseconds>(end - start);
+    cout<<"Done. Cost real time: " << double(duration.count()) * microseconds::period::num / microseconds::period::den  << " seconds."<<endl;
     cout<<"Total event : "<< Simulator::getEventCount() <<endl;
     Simulator::destroy();
     #else
     Simulator::run();
-    std::clock_t tEnd = std::clock();
-    std::clock_t costTime = (tEnd - tBegin)/CLOCKS_PER_SEC;
-    cout<<"Done. Cost real time: " << costTime << " seconds."<<endl;
+    auto end = system_clock::now();
+    auto duration = duration_cast<microseconds>(end - start);
+    cout<<"Done. Cost real time: " << double(duration.count()) * microseconds::period::num / microseconds::period::den  << " seconds."<<endl;
     cout<<"Total event : "<< Simulator::getEventCount() <<endl;
     cout<<"Min interval : "<< Simulator::_minInterval.getValue() <<endl;
     Simulator::destroy();

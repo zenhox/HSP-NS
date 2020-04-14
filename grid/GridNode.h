@@ -3,6 +3,8 @@
 
 #include "Network.h"
 #include "Simulator.h"
+#include "Core.h"
+
 
 namespace HSP_NS{
 

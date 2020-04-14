@@ -6,7 +6,7 @@ PROJECT(grid)
 MESSAGE(STATUS "Project HSP-NS grid work")
 
 SET(CMAKE_BUILD_TYPE "Debug")
-SET(CORE_TYPE "HSP_CORE")      ## HSP_CORE NS3_CORE   MY_CORE
+SET(CORE_TYPE "NS3_CORE")      ## HSP_CORE NS3_CORE   MY_CORE
 SET(LOG "OFF")                 ## OFF
 SET(THREADPOOL "A")            ## A B
 

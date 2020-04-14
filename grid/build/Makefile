@@ -229,113 +229,113 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/grid.dir/build.make CMakeFiles/grid.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-root/ms-bysj/HSP-NS/core-parallel/src/Event.o: root/ms-bysj/HSP-NS/core-parallel/src/Event.cpp.o
+root/ms-bysj/HSP-NS/core/src/Event.o: root/ms-bysj/HSP-NS/core/src/Event.cpp.o
 
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/Event.o
-
-# target to build an object file
-root/ms-bysj/HSP-NS/core-parallel/src/Event.cpp.o:
-	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core-parallel/src/Event.cpp.o
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/Event.cpp.o
-
-root/ms-bysj/HSP-NS/core-parallel/src/Event.i: root/ms-bysj/HSP-NS/core-parallel/src/Event.cpp.i
-
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/Event.i
-
-# target to preprocess a source file
-root/ms-bysj/HSP-NS/core-parallel/src/Event.cpp.i:
-	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core-parallel/src/Event.cpp.i
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/Event.cpp.i
-
-root/ms-bysj/HSP-NS/core-parallel/src/Event.s: root/ms-bysj/HSP-NS/core-parallel/src/Event.cpp.s
-
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/Event.s
-
-# target to generate assembly for a file
-root/ms-bysj/HSP-NS/core-parallel/src/Event.cpp.s:
-	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core-parallel/src/Event.cpp.s
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/Event.cpp.s
-
-root/ms-bysj/HSP-NS/core-parallel/src/MapEM.o: root/ms-bysj/HSP-NS/core-parallel/src/MapEM.cpp.o
-
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/MapEM.o
+.PHONY : root/ms-bysj/HSP-NS/core/src/Event.o
 
 # target to build an object file
-root/ms-bysj/HSP-NS/core-parallel/src/MapEM.cpp.o:
-	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core-parallel/src/MapEM.cpp.o
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/MapEM.cpp.o
+root/ms-bysj/HSP-NS/core/src/Event.cpp.o:
+	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core/src/Event.cpp.o
+.PHONY : root/ms-bysj/HSP-NS/core/src/Event.cpp.o
 
-root/ms-bysj/HSP-NS/core-parallel/src/MapEM.i: root/ms-bysj/HSP-NS/core-parallel/src/MapEM.cpp.i
+root/ms-bysj/HSP-NS/core/src/Event.i: root/ms-bysj/HSP-NS/core/src/Event.cpp.i
 
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/MapEM.i
+.PHONY : root/ms-bysj/HSP-NS/core/src/Event.i
 
 # target to preprocess a source file
-root/ms-bysj/HSP-NS/core-parallel/src/MapEM.cpp.i:
-	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core-parallel/src/MapEM.cpp.i
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/MapEM.cpp.i
+root/ms-bysj/HSP-NS/core/src/Event.cpp.i:
+	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core/src/Event.cpp.i
+.PHONY : root/ms-bysj/HSP-NS/core/src/Event.cpp.i
 
-root/ms-bysj/HSP-NS/core-parallel/src/MapEM.s: root/ms-bysj/HSP-NS/core-parallel/src/MapEM.cpp.s
+root/ms-bysj/HSP-NS/core/src/Event.s: root/ms-bysj/HSP-NS/core/src/Event.cpp.s
 
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/MapEM.s
+.PHONY : root/ms-bysj/HSP-NS/core/src/Event.s
 
 # target to generate assembly for a file
-root/ms-bysj/HSP-NS/core-parallel/src/MapEM.cpp.s:
-	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core-parallel/src/MapEM.cpp.s
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/MapEM.cpp.s
+root/ms-bysj/HSP-NS/core/src/Event.cpp.s:
+	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core/src/Event.cpp.s
+.PHONY : root/ms-bysj/HSP-NS/core/src/Event.cpp.s
 
-root/ms-bysj/HSP-NS/core-parallel/src/Simulator.o: root/ms-bysj/HSP-NS/core-parallel/src/Simulator.cpp.o
+root/ms-bysj/HSP-NS/core/src/EventManager.o: root/ms-bysj/HSP-NS/core/src/EventManager.cpp.o
 
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/Simulator.o
+.PHONY : root/ms-bysj/HSP-NS/core/src/EventManager.o
 
 # target to build an object file
-root/ms-bysj/HSP-NS/core-parallel/src/Simulator.cpp.o:
-	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core-parallel/src/Simulator.cpp.o
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/Simulator.cpp.o
+root/ms-bysj/HSP-NS/core/src/EventManager.cpp.o:
+	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core/src/EventManager.cpp.o
+.PHONY : root/ms-bysj/HSP-NS/core/src/EventManager.cpp.o
 
-root/ms-bysj/HSP-NS/core-parallel/src/Simulator.i: root/ms-bysj/HSP-NS/core-parallel/src/Simulator.cpp.i
+root/ms-bysj/HSP-NS/core/src/EventManager.i: root/ms-bysj/HSP-NS/core/src/EventManager.cpp.i
 
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/Simulator.i
+.PHONY : root/ms-bysj/HSP-NS/core/src/EventManager.i
 
 # target to preprocess a source file
-root/ms-bysj/HSP-NS/core-parallel/src/Simulator.cpp.i:
-	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core-parallel/src/Simulator.cpp.i
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/Simulator.cpp.i
+root/ms-bysj/HSP-NS/core/src/EventManager.cpp.i:
+	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core/src/EventManager.cpp.i
+.PHONY : root/ms-bysj/HSP-NS/core/src/EventManager.cpp.i
 
-root/ms-bysj/HSP-NS/core-parallel/src/Simulator.s: root/ms-bysj/HSP-NS/core-parallel/src/Simulator.cpp.s
+root/ms-bysj/HSP-NS/core/src/EventManager.s: root/ms-bysj/HSP-NS/core/src/EventManager.cpp.s
 
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/Simulator.s
+.PHONY : root/ms-bysj/HSP-NS/core/src/EventManager.s
 
 # target to generate assembly for a file
-root/ms-bysj/HSP-NS/core-parallel/src/Simulator.cpp.s:
-	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core-parallel/src/Simulator.cpp.s
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/Simulator.cpp.s
+root/ms-bysj/HSP-NS/core/src/EventManager.cpp.s:
+	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core/src/EventManager.cpp.s
+.PHONY : root/ms-bysj/HSP-NS/core/src/EventManager.cpp.s
 
-root/ms-bysj/HSP-NS/core-parallel/src/Time.o: root/ms-bysj/HSP-NS/core-parallel/src/Time.cpp.o
+root/ms-bysj/HSP-NS/core/src/Simulator.o: root/ms-bysj/HSP-NS/core/src/Simulator.cpp.o
 
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/Time.o
+.PHONY : root/ms-bysj/HSP-NS/core/src/Simulator.o
 
 # target to build an object file
-root/ms-bysj/HSP-NS/core-parallel/src/Time.cpp.o:
-	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core-parallel/src/Time.cpp.o
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/Time.cpp.o
+root/ms-bysj/HSP-NS/core/src/Simulator.cpp.o:
+	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core/src/Simulator.cpp.o
+.PHONY : root/ms-bysj/HSP-NS/core/src/Simulator.cpp.o
 
-root/ms-bysj/HSP-NS/core-parallel/src/Time.i: root/ms-bysj/HSP-NS/core-parallel/src/Time.cpp.i
+root/ms-bysj/HSP-NS/core/src/Simulator.i: root/ms-bysj/HSP-NS/core/src/Simulator.cpp.i
 
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/Time.i
+.PHONY : root/ms-bysj/HSP-NS/core/src/Simulator.i
 
 # target to preprocess a source file
-root/ms-bysj/HSP-NS/core-parallel/src/Time.cpp.i:
-	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core-parallel/src/Time.cpp.i
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/Time.cpp.i
+root/ms-bysj/HSP-NS/core/src/Simulator.cpp.i:
+	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core/src/Simulator.cpp.i
+.PHONY : root/ms-bysj/HSP-NS/core/src/Simulator.cpp.i
 
-root/ms-bysj/HSP-NS/core-parallel/src/Time.s: root/ms-bysj/HSP-NS/core-parallel/src/Time.cpp.s
+root/ms-bysj/HSP-NS/core/src/Simulator.s: root/ms-bysj/HSP-NS/core/src/Simulator.cpp.s
 
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/Time.s
+.PHONY : root/ms-bysj/HSP-NS/core/src/Simulator.s
 
 # target to generate assembly for a file
-root/ms-bysj/HSP-NS/core-parallel/src/Time.cpp.s:
-	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core-parallel/src/Time.cpp.s
-.PHONY : root/ms-bysj/HSP-NS/core-parallel/src/Time.cpp.s
+root/ms-bysj/HSP-NS/core/src/Simulator.cpp.s:
+	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core/src/Simulator.cpp.s
+.PHONY : root/ms-bysj/HSP-NS/core/src/Simulator.cpp.s
+
+root/ms-bysj/HSP-NS/core/src/Time.o: root/ms-bysj/HSP-NS/core/src/Time.cpp.o
+
+.PHONY : root/ms-bysj/HSP-NS/core/src/Time.o
+
+# target to build an object file
+root/ms-bysj/HSP-NS/core/src/Time.cpp.o:
+	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core/src/Time.cpp.o
+.PHONY : root/ms-bysj/HSP-NS/core/src/Time.cpp.o
+
+root/ms-bysj/HSP-NS/core/src/Time.i: root/ms-bysj/HSP-NS/core/src/Time.cpp.i
+
+.PHONY : root/ms-bysj/HSP-NS/core/src/Time.i
+
+# target to preprocess a source file
+root/ms-bysj/HSP-NS/core/src/Time.cpp.i:
+	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core/src/Time.cpp.i
+.PHONY : root/ms-bysj/HSP-NS/core/src/Time.cpp.i
+
+root/ms-bysj/HSP-NS/core/src/Time.s: root/ms-bysj/HSP-NS/core/src/Time.cpp.s
+
+.PHONY : root/ms-bysj/HSP-NS/core/src/Time.s
+
+# target to generate assembly for a file
+root/ms-bysj/HSP-NS/core/src/Time.cpp.s:
+	$(MAKE) -f CMakeFiles/nscore.dir/build.make CMakeFiles/nscore.dir/root/ms-bysj/HSP-NS/core/src/Time.cpp.s
+.PHONY : root/ms-bysj/HSP-NS/core/src/Time.cpp.s
 
 root/ms-bysj/HSP-NS/lib/ThreadPool/example.o: root/ms-bysj/HSP-NS/lib/ThreadPool/example.cpp.o
 
@@ -518,18 +518,18 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... root/ms-bysj/HSP-NS/core-parallel/src/Event.o"
-	@echo "... root/ms-bysj/HSP-NS/core-parallel/src/Event.i"
-	@echo "... root/ms-bysj/HSP-NS/core-parallel/src/Event.s"
-	@echo "... root/ms-bysj/HSP-NS/core-parallel/src/MapEM.o"
-	@echo "... root/ms-bysj/HSP-NS/core-parallel/src/MapEM.i"
-	@echo "... root/ms-bysj/HSP-NS/core-parallel/src/MapEM.s"
-	@echo "... root/ms-bysj/HSP-NS/core-parallel/src/Simulator.o"
-	@echo "... root/ms-bysj/HSP-NS/core-parallel/src/Simulator.i"
-	@echo "... root/ms-bysj/HSP-NS/core-parallel/src/Simulator.s"
-	@echo "... root/ms-bysj/HSP-NS/core-parallel/src/Time.o"
-	@echo "... root/ms-bysj/HSP-NS/core-parallel/src/Time.i"
-	@echo "... root/ms-bysj/HSP-NS/core-parallel/src/Time.s"
+	@echo "... root/ms-bysj/HSP-NS/core/src/Event.o"
+	@echo "... root/ms-bysj/HSP-NS/core/src/Event.i"
+	@echo "... root/ms-bysj/HSP-NS/core/src/Event.s"
+	@echo "... root/ms-bysj/HSP-NS/core/src/EventManager.o"
+	@echo "... root/ms-bysj/HSP-NS/core/src/EventManager.i"
+	@echo "... root/ms-bysj/HSP-NS/core/src/EventManager.s"
+	@echo "... root/ms-bysj/HSP-NS/core/src/Simulator.o"
+	@echo "... root/ms-bysj/HSP-NS/core/src/Simulator.i"
+	@echo "... root/ms-bysj/HSP-NS/core/src/Simulator.s"
+	@echo "... root/ms-bysj/HSP-NS/core/src/Time.o"
+	@echo "... root/ms-bysj/HSP-NS/core/src/Time.i"
+	@echo "... root/ms-bysj/HSP-NS/core/src/Time.s"
 	@echo "... root/ms-bysj/HSP-NS/lib/ThreadPool/example.o"
 	@echo "... root/ms-bysj/HSP-NS/lib/ThreadPool/example.i"
 	@echo "... root/ms-bysj/HSP-NS/lib/ThreadPool/example.s"

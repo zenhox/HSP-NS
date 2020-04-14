@@ -39,7 +39,7 @@ namespace HSP_NS{
         shared_ptr<Node> dstNode =  getAnother(srcNode);
         #ifdef NS3_CORE
             ns3::Time tNext (ns3::PicoSeconds ( (transDelay + _interframeGap).getValue() ));
-            ns3::Simulator::Schedule (tNext, &Link::transmitsComplete, this, dstNode, pkt);
+            ns3::Simulator::Schedule (tNext, &Link::transmitComplete, this, dstNode, pkt);
         #elif defined HSP_CORE
             Simulator::schedule(srcNode->getNodeId(), 
                                 Simulator::getTimestamp(srcNode->getNodeId(), transDelay + _interframeGap), 
